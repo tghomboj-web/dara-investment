@@ -116,13 +116,6 @@ export default function SampleReport() {
         .animate-slide-in {
           animation: slideInUp 0.5s ease forwards;
         }
-        @keyframes dot-pulse {
-          0%, 100% { opacity: 1; transform: scale(1); }
-          50% { opacity: 0.5; transform: scale(1.3); }
-        }
-        .live-dot {
-          animation: dot-pulse 2s infinite;
-        }
       `}</style>
 
       <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
@@ -140,7 +133,7 @@ export default function SampleReport() {
             }}
           >
             <Sparkles size={14} />
-            Live Preview
+            Sample Report
           </span>
           <h2
             style={{
@@ -186,22 +179,9 @@ export default function SampleReport() {
                 <FileText size={24} color="#fff" />
               </div>
               <div style={{ flex: 1 }}>
-                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                  <h3 style={{ fontSize: "1.25rem", fontWeight: 700, color: "#fff" }}>
-                    Charlotte Investment Monitor
-                  </h3>
-                  <span 
-                    style={{
-                      display: "inline-flex", alignItems: "center", gap: "4px",
-                      padding: "3px 10px", borderRadius: "20px",
-                      background: "rgba(74,222,128,0.15)", border: "1px solid rgba(74,222,128,0.3)",
-                      color: "#4ade80", fontSize: "0.7rem", fontWeight: 600,
-                    }}
-                  >
-                    <span className="live-dot" style={{ width: "6px", height: "6px", background: "#4ade80", borderRadius: "50%", display: "inline-block" }} />
-                    LIVE
-                  </span>
-                </div>
+                <h3 style={{ fontSize: "1.25rem", fontWeight: 700, color: "#fff", marginBottom: "4px" }}>
+                  Charlotte Investment Monitor
+                </h3>
                 <p style={{ color: "#6b7280", fontSize: "0.9rem" }}>Daily Report — June 4, 2025</p>
               </div>
             </div>

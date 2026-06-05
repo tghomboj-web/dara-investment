@@ -176,24 +176,11 @@ export default function Hero() {
           >
             {/* Header */}
             <div style={{ padding: "16px 20px", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                <div>
-                  <p style={{ color: "#818cf8", fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>
-                    Live Monitor
-                  </p>
-                  <p style={{ color: "#fff", fontSize: "0.9rem", fontWeight: 600 }}>Charlotte Area</p>
-                </div>
-                <span 
-                  style={{
-                    display: "inline-flex", alignItems: "center", gap: "4px",
-                    padding: "3px 8px", borderRadius: "12px",
-                    background: "rgba(74,222,128,0.15)", border: "1px solid rgba(74,222,128,0.3)",
-                    color: "#4ade80", fontSize: "0.65rem", fontWeight: 600,
-                  }}
-                >
-                  <span style={{ width: "5px", height: "5px", background: "#4ade80", borderRadius: "50%", animation: "dot-pulse 2s infinite" }} />
-                  LIVE
-                </span>
+              <div>
+                <p style={{ color: "#818cf8", fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>
+                  Daily Monitor
+                </p>
+                <p style={{ color: "#fff", fontSize: "0.9rem", fontWeight: 600 }}>Charlotte Area</p>
               </div>
             </div>
 
