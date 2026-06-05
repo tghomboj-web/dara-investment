@@ -131,14 +131,65 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right — Preview Card */}
+        {/* Right — Animated Preview Card */}
         <div className="hidden lg:flex flex-col gap-5" style={{ paddingTop: "16px" }}>
+          <style>{`
+            @keyframes float {
+              0%, 100% { transform: translateY(0px); }
+              50% { transform: translateY(-10px); }
+            }
+            @keyframes glow-pulse {
+              0%, 100% { box-shadow: 0 0 30px rgba(99,102,241,0.2); }
+              50% { box-shadow: 0 0 50px rgba(99,102,241,0.4); }
+            }
+            @keyframes count-up {
+              from { opacity: 0; transform: translateY(10px); }
+              to { opacity: 1; transform: translateY(0); }
+            }
+            @keyframes shimmer {
+              0% { background-position: -200% 0; }
+              100% { background-position: 200% 0; }
+            }
+            @keyframes tag-pulse {
+              0%, 100% { opacity: 0.8; }
+              50% { opacity: 1; }
+            }
+            .preview-card {
+              animation: float 4s ease-in-out infinite, glow-pulse 3s ease-in-out infinite;
+            }
+            .stat-number {
+              animation: count-up 0.8s ease-out forwards;
+            }
+            .stat-number:nth-child(2) { animation-delay: 0.2s; }
+            .tag-shimmer {
+              background: linear-gradient(90deg, rgba(74,222,128,0.1) 0%, rgba(74,222,128,0.2) 50%, rgba(74,222,128,0.1) 100%);
+              background-size: 200% auto;
+              animation: shimmer 3s linear infinite;
+            }
+          `}</style>
+          
           <div
-            className="card-glass rounded-2xl p-6 border border-white/10"
+            className="card-glass rounded-2xl p-6 border border-white/10 preview-card"
             style={{
-              background: "linear-gradient(135deg, rgba(99,102,241,0.12), rgba(139,92,246,0.12))",
+              background: "linear-gradient(135deg, rgba(99,102,241,0.15), rgba(139,92,246,0.15))",
+              backdropFilter: "blur(20px)",
             }}
           >
+            {/* Live indicator */}
+            <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "16px" }}>
+              <span 
+                style={{
+                  display: "inline-flex", alignItems: "center", gap: "4px",
+                  padding: "3px 10px", borderRadius: "20px",
+                  background: "rgba(74,222,128,0.15)", border: "1px solid rgba(74,222,128,0.3)",
+                  color: "#4ade80", fontSize: "0.7rem", fontWeight: 600,
+                }}
+              >
+                <span style={{ width: "6px", height: "6px", background: "#4ade80", borderRadius: "50%", animation: "dot-pulse 2s infinite" }} />
+                LIVE
+              </span>
+            </div>
+
             <div style={{ marginBottom: "24px" }}>
               <p style={{ color: "#818cf8", fontSize: "0.75rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "8px" }}>
                 Daily Report Preview
@@ -154,23 +205,25 @@ export default function Hero() {
             <div style={{ marginBottom: "20px" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" }}>
                 <span style={{ color: "#6b7280", fontSize: "0.85rem" }}>New findings today</span>
-                <span style={{ color: "#fff", fontWeight: 700, fontSize: "1.1rem" }}>12</span>
+                <span className="stat-number" style={{ color: "#4ade80", fontWeight: 800, fontSize: "1.5rem" }}>12</span>
               </div>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <span style={{ color: "#6b7280", fontSize: "0.85rem" }}>Top findings (last 14 days)</span>
-                <span style={{ color: "#fff", fontWeight: 700, fontSize: "1.1rem" }}>28</span>
+                <span className="stat-number" style={{ color: "#818cf8", fontWeight: 800, fontSize: "1.5rem", animationDelay: "0.2s" }}>28</span>
               </div>
             </div>
 
             <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "16px" }}>
               <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-                {["Score 70+", "Under $400K", "Recent listings"].map((tag) => (
+                {["Score 70+", "Under $400K", "Recent listings"].map((tag, i) => (
                   <span
                     key={tag}
+                    className="tag-shimmer"
                     style={{
                       padding: "4px 10px", borderRadius: "6px",
-                      background: "rgba(74,222,128,0.1)", border: "1px solid rgba(74,222,128,0.2)",
-                      color: "#4ade80", fontSize: "0.75rem",
+                      border: "1px solid rgba(74,222,128,0.3)",
+                      color: "#4ade80", fontSize: "0.75rem", fontWeight: 500,
+                      animationDelay: `${i * 0.3}s`,
                     }}
                   >
                     {tag}
