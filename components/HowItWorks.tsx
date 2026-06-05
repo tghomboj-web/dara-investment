@@ -1,44 +1,34 @@
 "use client";
 
-import { Bot, Filter, Bell, TrendingUp } from "lucide-react";
+import { Settings, ScanLine, Send } from "lucide-react";
 
 const steps = [
   {
-    icon: Bot,
+    icon: Settings,
     step: "01",
-    title: "Algorithm Scans Listings",
+    title: "Choose Your Profile",
     description:
-      "Our automated system connects to multiple property APIs and scans thousands of listings every day across target markets.",
+      "Set your investment criteria: price range, score threshold, property types, and target ZIP codes in the Charlotte area.",
     color: "text-indigo-400",
     bg: "bg-indigo-500/10",
     border: "border-indigo-500/20",
   },
   {
-    icon: Filter,
+    icon: ScanLine,
     step: "02",
-    title: "Smart Filtering Applied",
+    title: "Monitor Scans Selected ZIPs",
     description:
-      "Properties are filtered by investment criteria — cap rate, cash flow, price range, property type, and your chosen zip codes.",
+      "Our system runs daily scans across your selected Charlotte-area ZIP codes, checking listings against your criteria.",
     color: "text-purple-400",
     bg: "bg-purple-500/10",
     border: "border-purple-500/20",
   },
   {
-    icon: Bell,
+    icon: Send,
     step: "03",
-    title: "Alerts Sent to Telegram",
+    title: "Receive New Findings & Opportunities",
     description:
-      "Qualifying properties are instantly formatted and delivered to your Telegram — free channel or your private personalized feed.",
-    color: "text-pink-400",
-    bg: "bg-pink-500/10",
-    border: "border-pink-500/20",
-  },
-  {
-    icon: TrendingUp,
-    step: "04",
-    title: "You Make the Move",
-    description:
-      "Review deals on your schedule, analyze the numbers, and act fast before the market does. Every day is a new opportunity.",
+      "Get daily reports with new findings and recent opportunities delivered to your email or Telegram.",
     color: "text-emerald-400",
     bg: "bg-emerald-500/10",
     border: "border-emerald-500/20",
@@ -71,7 +61,7 @@ export default function HowItWorks() {
               marginBottom: "16px",
             }}
           >
-            The Process
+            How It Works
           </span>
           <h2
             style={{
@@ -82,10 +72,10 @@ export default function HowItWorks() {
               lineHeight: 1.2,
             }}
           >
-            How <span className="gradient-text">Dara Investment</span> Works
+            Three Simple <span className="gradient-text">Steps</span>
           </h2>
           <p style={{ color: "#9ca3af", fontSize: "1.1rem", maxWidth: "560px", margin: "0 auto", lineHeight: 1.7 }}>
-            From API scan to your Telegram in minutes — fully automated, every single day.
+            Set your criteria, monitor daily scans, receive findings — all automated and objective.
           </p>
         </div>
 
@@ -93,7 +83,7 @@ export default function HowItWorks() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
             gap: "28px",
           }}
         >

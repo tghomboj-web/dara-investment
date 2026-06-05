@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, TrendingUp } from "lucide-react";
+import { Menu, X, Search, Home } from "lucide-react";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -16,8 +16,8 @@ export default function Navbar() {
 
   const navLinks = [
     { label: "How It Works", href: "#how-it-works" },
+    { label: "Sample Report", href: "#sample-report" },
     { label: "Pricing", href: "#pricing" },
-    { label: "Free Channel", href: "#free" },
   ];
 
   return (
@@ -32,10 +32,10 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between" style={{ height: "72px" }}>
         <div className="flex items-center gap-2">
           <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
-            <TrendingUp size={18} className="text-white" />
+            <Home size={18} className="text-white" />
           </div>
-          <span className="text-xl font-bold tracking-tight">
-            <span className="gradient-text">Dara</span> Investment
+          <span className="text-lg font-bold tracking-tight">
+            <span style={{ background: "linear-gradient(135deg,#6366f1,#8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Investment Property</span> Monitor
           </span>
         </div>
 
@@ -52,20 +52,12 @@ export default function Navbar() {
         </div>
 
         <div className="hidden md:flex items-center gap-3">
-          <a
-            href="https://t.me/YOUR_CHANNEL"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-gray-300 hover:text-white transition-colors px-4 py-2"
-          >
-            Join Free
-          </a>
           <Link
             href="/pro"
             className="text-sm font-semibold px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-400 hover:to-purple-500 transition-all duration-200 glow-purple"
             style={{ textDecoration: "none", color: "#fff" }}
           >
-            Get Pro Access
+            Join Beta
           </Link>
         </div>
 
@@ -89,21 +81,13 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
-          <a
-            href="https://t.me/YOUR_CHANNEL"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-gray-300"
-          >
-            Join Free Telegram
-          </a>
           <Link
             href="/pro"
             onClick={() => setMenuOpen(false)}
             className="text-sm font-semibold px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 w-full"
             style={{ textDecoration: "none", color: "#fff", display: "block", textAlign: "center" }}
           >
-            Get Pro Access
+            Join Beta
           </Link>
         </div>
       )}

@@ -1,39 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { Send, ArrowRight, Home, DollarSign, MapPin } from "lucide-react";
+import { Search, ArrowRight, CheckCircle } from "lucide-react";
 
-const floatingCards = [
-  {
-    icon: Home,
-    title: "3BR Single Family",
-    detail: "Phoenix, AZ 85001",
-    price: "$285,000",
-    badge: "Cap Rate 8.2%",
-    color: "from-indigo-500/20 to-purple-500/20",
-    border: "border-indigo-500/30",
-    delay: "0s",
-  },
-  {
-    icon: DollarSign,
-    title: "Duplex Investment",
-    detail: "Tampa, FL 33601",
-    price: "$340,000",
-    badge: "Cash Flow +$1,200/mo",
-    color: "from-purple-500/20 to-pink-500/20",
-    border: "border-purple-500/30",
-    delay: "1.5s",
-  },
-  {
-    icon: MapPin,
-    title: "Multi-Family 4 Units",
-    detail: "Dallas, TX 75201",
-    price: "$520,000",
-    badge: "ROI 12.4%",
-    color: "from-pink-500/20 to-red-500/20",
-    border: "border-pink-500/30",
-    delay: "0.8s",
-  },
+const featurePills = [
+  "Daily Monitoring",
+  "Score-Based Filtering",
+  "Charlotte ZIP Profiles",
+  "Email + Telegram Alerts",
 ];
 
 export default function Hero() {
@@ -61,7 +35,7 @@ export default function Hero() {
       >
         {/* Left — text content */}
         <div style={{ position: "relative", zIndex: 10 }}>
-          {/* Badge */}
+          {/* Beta Badge */}
           <div style={{
             display: "inline-flex", alignItems: "center", gap: "8px",
             padding: "8px 16px", borderRadius: "999px",
@@ -70,7 +44,7 @@ export default function Hero() {
             marginBottom: "32px",
           }}>
             <span style={{ width: "8px", height: "8px", background: "#4ade80", borderRadius: "50%", animation: "pulse 2s infinite" }} />
-            Live property alerts — updated daily
+            Now in Beta — Charlotte Area
           </div>
 
           {/* Heading */}
@@ -81,9 +55,9 @@ export default function Hero() {
             color: "#fff",
             marginBottom: "28px",
           }}>
-            Find Your Next{" "}
-            <span className="gradient-text">Investment Property</span>{" "}
-            Before Anyone Else
+            Investment Property Monitor{" "}
+            <span className="gradient-text">for Charlotte-Area</span>{" "}
+            Investors
           </h1>
 
           {/* Description */}
@@ -91,50 +65,64 @@ export default function Hero() {
             color: "#9ca3af",
             fontSize: "1.1rem",
             lineHeight: 1.75,
-            maxWidth: "480px",
-            marginBottom: "40px",
+            maxWidth: "520px",
+            marginBottom: "36px",
           }}>
-            Our algorithm scans thousands of listings daily and delivers
-            high-yield investment properties straight to your Telegram — filtered
-            by your exact criteria.
+            Daily property findings based on objective investment criteria such as price, 
+            score, listing status, price changes, and selected ZIP-code profiles.
           </p>
+
+          {/* Feature Pills */}
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", marginBottom: "36px" }}>
+            {featurePills.map((feature) => (
+              <div
+                key={feature}
+                style={{
+                  display: "inline-flex", alignItems: "center", gap: "6px",
+                  padding: "8px 16px", borderRadius: "8px",
+                  background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)",
+                  color: "#d1d5db", fontSize: "0.85rem", fontWeight: 500,
+                }}
+              >
+                <CheckCircle size={14} color="#4ade80" />
+                {feature}
+              </div>
+            ))}
+          </div>
 
           {/* CTA Buttons */}
           <div style={{ display: "flex", flexWrap: "wrap", gap: "14px", marginBottom: "36px" }}>
-            <a
-              href="https://t.me/YOUR_CHANNEL"
-              target="_blank"
-              rel="noopener noreferrer"
-              id="free"
-              style={{
-                display: "inline-flex", alignItems: "center", gap: "8px",
-                padding: "16px 28px", borderRadius: "14px",
-                background: "#229ED9", color: "#fff",
-                fontWeight: 600, fontSize: "1rem", textDecoration: "none",
-              }}
-            >
-              <Send size={18} />
-              Join Free Telegram Channel
-            </a>
             <Link
               href="/pro"
-              className="glow-purple"
               style={{
                 display: "inline-flex", alignItems: "center", gap: "8px",
                 padding: "16px 28px", borderRadius: "14px",
-                background: "linear-gradient(135deg,#6366f1,#9333ea)",
-                color: "#fff", fontWeight: 600, fontSize: "1rem",
-                textDecoration: "none",
+                background: "linear-gradient(135deg,#6366f1,#9333ea)", color: "#fff",
+                fontWeight: 600, fontSize: "1rem", textDecoration: "none",
+                boxShadow: "0 0 40px rgba(99,102,241,0.35)",
               }}
             >
-              Get Pro Alerts
+              <Search size={18} />
+              Join Beta
+            </Link>
+            <Link
+              href="#sample-report"
+              style={{
+                display: "inline-flex", alignItems: "center", gap: "8px",
+                padding: "16px 28px", borderRadius: "14px",
+                border: "1px solid rgba(255,255,255,0.2)", color: "#fff",
+                fontWeight: 600, fontSize: "1rem", textDecoration: "none",
+                transition: "border-color 0.2s",
+              }}
+            >
+              View Sample Report
               <ArrowRight size={18} />
             </Link>
           </div>
 
           {/* Trust badges */}
           <div style={{ display: "flex", flexWrap: "wrap", gap: "24px" }}>
-            {["No credit card to join free", "Cancel anytime", "Daily alerts"].map((t) => (
+            {["Charlotte-area focused", "Email + Telegram alerts", "Daily monitoring"].map((t) => (
               <div key={t} style={{ display: "flex", alignItems: "center", gap: "6px", color: "#6b7280", fontSize: "0.875rem" }}>
                 <span style={{ color: "#4ade80", fontWeight: 700, fontSize: "1rem" }}>✓</span>
                 {t}
@@ -143,42 +131,54 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right — property cards */}
+        {/* Right — Preview Card */}
         <div className="hidden lg:flex flex-col gap-5" style={{ paddingTop: "16px" }}>
-          {floatingCards.map((card, i) => {
-            const Icon = card.icon;
-            return (
-              <div
-                key={i}
-                className={`card-glass rounded-2xl p-5 border ${card.border} animate-float`}
-                style={{
-                  animationDelay: card.delay,
-                  marginLeft: i === 1 ? "56px" : i === 2 ? "28px" : "0px",
-                  background: `linear-gradient(135deg, ${
-                    i === 0 ? "rgba(99,102,241,0.12), rgba(139,92,246,0.12)"
-                    : i === 1 ? "rgba(139,92,246,0.12), rgba(236,72,153,0.12)"
-                    : "rgba(236,72,153,0.12), rgba(239,68,68,0.12)"
-                  })`,
-                }}
-              >
-                <div className="flex items-start justify-between mb-3">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "rgba(255,255,255,0.08)" }}>
-                      <Icon size={18} className="text-white" />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-white text-sm">{card.title}</p>
-                      <p className="text-gray-400 text-xs">{card.detail}</p>
-                    </div>
-                  </div>
-                  <span className="text-xs px-2.5 py-1 rounded-full font-medium whitespace-nowrap" style={{ background: "rgba(74,222,128,0.15)", color: "#4ade80", border: "1px solid rgba(74,222,128,0.3)" }}>
-                    {card.badge}
-                  </span>
-                </div>
-                <p className="text-2xl font-bold text-white">{card.price}</p>
+          <div
+            className="card-glass rounded-2xl p-6 border border-white/10"
+            style={{
+              background: "linear-gradient(135deg, rgba(99,102,241,0.12), rgba(139,92,246,0.12))",
+            }}
+          >
+            <div style={{ marginBottom: "24px" }}>
+              <p style={{ color: "#818cf8", fontSize: "0.75rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "8px" }}>
+                Daily Report Preview
+              </p>
+              <h3 style={{ fontSize: "1.25rem", fontWeight: 700, color: "#fff", marginBottom: "8px" }}>
+                Charlotte Investment Monitor
+              </h3>
+              <p style={{ color: "#9ca3af", fontSize: "0.9rem" }}>
+                June 4, 2025
+              </p>
+            </div>
+
+            <div style={{ marginBottom: "20px" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" }}>
+                <span style={{ color: "#6b7280", fontSize: "0.85rem" }}>New findings today</span>
+                <span style={{ color: "#fff", fontWeight: 700, fontSize: "1.1rem" }}>12</span>
               </div>
-            );
-          })}
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <span style={{ color: "#6b7280", fontSize: "0.85rem" }}>Top findings (last 14 days)</span>
+                <span style={{ color: "#fff", fontWeight: 700, fontSize: "1.1rem" }}>28</span>
+              </div>
+            </div>
+
+            <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "16px" }}>
+              <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+                {["Score 70+", "Under $400K", "Recent listings"].map((tag) => (
+                  <span
+                    key={tag}
+                    style={{
+                      padding: "4px 10px", borderRadius: "6px",
+                      background: "rgba(74,222,128,0.1)", border: "1px solid rgba(74,222,128,0.2)",
+                      color: "#4ade80", fontSize: "0.75rem",
+                    }}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

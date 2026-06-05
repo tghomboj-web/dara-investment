@@ -1,7 +1,10 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import HowItWorks from "@/components/HowItWorks";
+import SampleReport from "@/components/SampleReport";
+import WhatMonitorChecks from "@/components/WhatMonitorChecks";
 import Pricing from "@/components/Pricing";
+import Disclaimer from "@/components/Disclaimer";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -10,7 +13,10 @@ export default function Home() {
       <Navbar />
       <Hero />
       <HowItWorks />
+      <SampleReport />
+      <WhatMonitorChecks />
       <Pricing />
+      <Disclaimer />
       <Footer />
     </main>
   );
