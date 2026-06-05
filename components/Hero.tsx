@@ -1,13 +1,22 @@
 "use client";
 
 import Link from "next/link";
-import { Search, ArrowRight, CheckCircle } from "lucide-react";
+import { Search, ArrowRight, CheckCircle, Home } from "lucide-react";
 
 const featurePills = [
   "Daily Monitoring",
   "Score-Based Filtering",
   "Charlotte ZIP Profiles",
   "Email + Telegram Alerts",
+];
+
+const scrollingProperties = [
+  { address: "4521 Oakwood Ave, Charlotte", beds: 3, baths: 2, price: "$285,000", score: 78, status: "Just Listed", badge: "green" },
+  { address: "8923 Park Ridge Dr, Charlotte", beds: 4, baths: 2.5, price: "$340,000", score: 72, status: "Price Drop", badge: "yellow" },
+  { address: "1567 Maple Creek Rd, Charlotte", beds: 3, baths: 2, price: "$265,000", score: 69, status: "Back on Market", badge: "purple" },
+  { address: "2314 Riverbend Rd, Charlotte", beds: 3, baths: 2, price: "$320,000", score: 84, status: "New Listing", badge: "green" },
+  { address: "7896 Hunters Pointe, Charlotte", beds: 4, baths: 3, price: "$295,000", score: 81, status: "Just Listed", badge: "green" },
+  { address: "5432 Mountain View, Charlotte", beds: 3, baths: 2.5, price: "$310,000", score: 75, status: "Price Drop", badge: "yellow" },
 ];
 
 export default function Hero() {
@@ -131,105 +140,126 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right — Animated Preview Card */}
-        <div className="hidden lg:flex flex-col gap-5" style={{ paddingTop: "16px" }}>
+        {/* Right — Scrolling Property Ticker */}
+        <div className="hidden lg:flex flex-col gap-5" style={{ paddingTop: "16px", width: "380px" }}>
           <style>{`
-            @keyframes float {
-              0%, 100% { transform: translateY(0px); }
-              50% { transform: translateY(-10px); }
+            @keyframes scroll-up {
+              0% { transform: translateY(0); }
+              100% { transform: translateY(-50%); }
             }
-            @keyframes glow-pulse {
-              0%, 100% { box-shadow: 0 0 30px rgba(99,102,241,0.2); }
-              50% { box-shadow: 0 0 50px rgba(99,102,241,0.4); }
-            }
-            @keyframes count-up {
-              from { opacity: 0; transform: translateY(10px); }
-              to { opacity: 1; transform: translateY(0); }
-            }
-            @keyframes shimmer {
-              0% { background-position: -200% 0; }
-              100% { background-position: 200% 0; }
-            }
-            @keyframes tag-pulse {
-              0%, 100% { opacity: 0.8; }
+            @keyframes fade-edge {
+              0%, 100% { opacity: 0.3; }
               50% { opacity: 1; }
             }
-            .preview-card {
-              animation: float 4s ease-in-out infinite, glow-pulse 3s ease-in-out infinite;
+            .property-scroll {
+              animation: scroll-up 20s linear infinite;
             }
-            .stat-number {
-              animation: count-up 0.8s ease-out forwards;
+            .property-scroll:hover {
+              animation-play-state: paused;
             }
-            .stat-number:nth-child(2) { animation-delay: 0.2s; }
-            .tag-shimmer {
-              background: linear-gradient(90deg, rgba(74,222,128,0.1) 0%, rgba(74,222,128,0.2) 50%, rgba(74,222,128,0.1) 100%);
-              background-size: 200% auto;
-              animation: shimmer 3s linear infinite;
+            .property-card {
+              transition: all 0.3s ease;
+            }
+            .property-card:hover {
+              transform: scale(1.02);
+              background: rgba(255,255,255,0.08) !important;
             }
           `}</style>
           
           <div
-            className="card-glass rounded-2xl p-6 border border-white/10 preview-card"
+            className="card-glass rounded-2xl border border-white/10 overflow-hidden"
             style={{
-              background: "linear-gradient(135deg, rgba(99,102,241,0.15), rgba(139,92,246,0.15))",
+              background: "linear-gradient(135deg, rgba(99,102,241,0.1), rgba(139,92,246,0.1))",
               backdropFilter: "blur(20px)",
+              height: "320px",
             }}
           >
-            {/* Live indicator */}
-            <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "16px" }}>
-              <span 
-                style={{
-                  display: "inline-flex", alignItems: "center", gap: "4px",
-                  padding: "3px 10px", borderRadius: "20px",
-                  background: "rgba(74,222,128,0.15)", border: "1px solid rgba(74,222,128,0.3)",
-                  color: "#4ade80", fontSize: "0.7rem", fontWeight: 600,
-                }}
-              >
-                <span style={{ width: "6px", height: "6px", background: "#4ade80", borderRadius: "50%", animation: "dot-pulse 2s infinite" }} />
-                LIVE
-              </span>
-            </div>
-
-            <div style={{ marginBottom: "24px" }}>
-              <p style={{ color: "#818cf8", fontSize: "0.75rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "8px" }}>
-                Daily Report Preview
-              </p>
-              <h3 style={{ fontSize: "1.25rem", fontWeight: 700, color: "#fff", marginBottom: "8px" }}>
-                Charlotte Investment Monitor
-              </h3>
-              <p style={{ color: "#9ca3af", fontSize: "0.9rem" }}>
-                June 4, 2025
-              </p>
-            </div>
-
-            <div style={{ marginBottom: "20px" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" }}>
-                <span style={{ color: "#6b7280", fontSize: "0.85rem" }}>New findings today</span>
-                <span className="stat-number" style={{ color: "#4ade80", fontWeight: 800, fontSize: "1.5rem" }}>12</span>
-              </div>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <span style={{ color: "#6b7280", fontSize: "0.85rem" }}>Top findings (last 14 days)</span>
-                <span className="stat-number" style={{ color: "#818cf8", fontWeight: 800, fontSize: "1.5rem", animationDelay: "0.2s" }}>28</span>
+            {/* Header */}
+            <div style={{ padding: "16px 20px", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                <div>
+                  <p style={{ color: "#818cf8", fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>
+                    Live Monitor
+                  </p>
+                  <p style={{ color: "#fff", fontSize: "0.9rem", fontWeight: 600 }}>Charlotte Area</p>
+                </div>
+                <span 
+                  style={{
+                    display: "inline-flex", alignItems: "center", gap: "4px",
+                    padding: "3px 8px", borderRadius: "12px",
+                    background: "rgba(74,222,128,0.15)", border: "1px solid rgba(74,222,128,0.3)",
+                    color: "#4ade80", fontSize: "0.65rem", fontWeight: 600,
+                  }}
+                >
+                  <span style={{ width: "5px", height: "5px", background: "#4ade80", borderRadius: "50%", animation: "dot-pulse 2s infinite" }} />
+                  LIVE
+                </span>
               </div>
             </div>
 
-            <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "16px" }}>
-              <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-                {["Score 70+", "Under $400K", "Recent listings"].map((tag, i) => (
-                  <span
-                    key={tag}
-                    className="tag-shimmer"
+            {/* Scrolling Properties */}
+            <div style={{ height: "240px", overflow: "hidden", position: "relative" }}>
+              {/* Fade overlay top */}
+              <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "30px", background: "linear-gradient(to bottom, rgba(10,10,15,0.8), transparent)", zIndex: 10, pointerEvents: "none" }} />
+              
+              {/* Fade overlay bottom */}
+              <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "30px", background: "linear-gradient(to top, rgba(10,10,15,0.8), transparent)", zIndex: 10, pointerEvents: "none" }} />
+              
+              <div className="property-scroll" style={{ padding: "10px 16px" }}>
+                {[...scrollingProperties, ...scrollingProperties].map((property, i) => (
+                  <div
+                    key={i}
+                    className="property-card"
                     style={{
-                      padding: "4px 10px", borderRadius: "6px",
-                      border: "1px solid rgba(74,222,128,0.3)",
-                      color: "#4ade80", fontSize: "0.75rem", fontWeight: 500,
-                      animationDelay: `${i * 0.3}s`,
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "12px",
+                      padding: "12px",
+                      marginBottom: "10px",
+                      borderRadius: "10px",
+                      background: "rgba(255,255,255,0.03)",
+                      border: "1px solid rgba(255,255,255,0.06)",
+                      cursor: "pointer",
                     }}
                   >
-                    {tag}
-                  </span>
+                    <div
+                      style={{
+                        width: "36px",
+                        height: "36px",
+                        borderRadius: "8px",
+                        background: property.badge === "green" ? "rgba(74,222,128,0.15)" : property.badge === "yellow" ? "rgba(251,191,36,0.15)" : "rgba(139,92,246,0.15)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        flexShrink: 0,
+                      }}
+                    >
+                      <Home size={16} color={property.badge === "green" ? "#4ade80" : property.badge === "yellow" ? "#fbbf24" : "#a78bfa"} />
+                    </div>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <p style={{ color: "#fff", fontWeight: 500, fontSize: "0.8rem", marginBottom: "2px", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                        {property.address}
+                      </p>
+                      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                        <span style={{ color: "#6b7280", fontSize: "0.7rem" }}>{property.beds}bd · {property.baths}ba</span>
+                        <span style={{ color: property.badge === "green" ? "#4ade80" : property.badge === "yellow" ? "#fbbf24" : "#a78bfa", fontSize: "0.65rem", fontWeight: 600 }}>
+                          {property.status}
+                        </span>
+                      </div>
+                    </div>
+                    <div style={{ textAlign: "right", flexShrink: 0 }}>
+                      <p style={{ color: "#fff", fontWeight: 700, fontSize: "0.85rem" }}>{property.price}</p>
+                      <span style={{ color: "#818cf8", fontSize: "0.7rem", fontWeight: 600 }}>Score {property.score}</span>
+                    </div>
+                  </div>
                 ))}
               </div>
+            </div>
+
+            {/* Footer stats */}
+            <div style={{ padding: "10px 16px", borderTop: "1px solid rgba(255,255,255,0.08)", display: "flex", justifyContent: "space-between" }}>
+              <span style={{ color: "#6b7280", fontSize: "0.7rem" }}>12 new today</span>
+              <span style={{ color: "#4ade80", fontSize: "0.7rem", fontWeight: 600 }}>Scanning 15 ZIPs</span>
             </div>
           </div>
         </div>
