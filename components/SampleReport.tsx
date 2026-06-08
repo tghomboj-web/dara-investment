@@ -87,13 +87,22 @@ export default function SampleReport() {
     <section
       id="sample-report"
       style={{ padding: "120px 32px" }}
-      className="relative bg-[#080c10]"
+      className="relative bg-[#080c10] sr-section"
     >
       <div className="absolute inset-0 pointer-events-none">
         <div className="section-divider absolute top-0 left-0 right-0" />
       </div>
 
       <style>{`
+        @media (max-width: 768px) {
+          .sr-section { padding: 52px 20px !important; }
+          .sr-header { margin-bottom: 32px !important; }
+          .sr-card-head { padding: 16px !important; }
+          .sr-card-body { padding: 14px 16px !important; }
+          .sr-stat-row { gap: 20px !important; margin-top: 14px !important; }
+          .sr-top-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
+          .sr-cta { margin-top: 28px !important; }
+        }
         @keyframes slideInUp {
           from { opacity: 0; transform: translateY(20px); }
           to { opacity: 1; transform: translateY(0); }
@@ -120,7 +129,7 @@ export default function SampleReport() {
 
       <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
         {/* Section header */}
-        <div style={{ textAlign: "center", marginBottom: "60px" }}>
+        <div className="sr-header" style={{ textAlign: "center", marginBottom: "60px" }}>
           <span style={{
             fontFamily: "'Space Mono', monospace",
             display: "inline-flex", alignItems: "center", gap: "8px",
@@ -153,7 +162,7 @@ export default function SampleReport() {
           }}
         >
           {/* Report Header */}
-          <div style={{ padding: "28px 36px", borderBottom: "1px solid rgba(0,212,170,0.08)" }}>
+          <div className="sr-card-head" style={{ padding: "28px 36px", borderBottom: "1px solid rgba(0,212,170,0.08)" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "14px", marginBottom: "12px" }}>
               <div style={{
                 width: "42px", height: "42px", borderRadius: "10px",
@@ -173,7 +182,7 @@ export default function SampleReport() {
             </div>
             
             {/* Summary Stats with pulse */}
-            <div style={{ display: "flex", gap: "32px", marginTop: "20px", flexWrap: "wrap" }}>
+            <div className="sr-stat-row" style={{ display: "flex", gap: "32px", marginTop: "20px", flexWrap: "wrap" }}>
               <div className={pulseStats ? "stat-pulse" : ""} style={{ transition: "all 0.3s ease" }}>
                 <span style={{ color: "#4a5e72", fontSize: "0.75rem", display: "block", marginBottom: "2px" }}>New findings today</span>
                 <p style={{ fontFamily: "'Space Mono', monospace", color: "#00d4aa", fontWeight: 700, fontSize: "1.4rem" }}>12</p>
@@ -190,7 +199,7 @@ export default function SampleReport() {
           </div>
 
           {/* Animated New Findings */}
-          <div style={{ padding: "24px 36px", borderBottom: "1px solid rgba(0,212,170,0.08)" }}>
+          <div className="sr-card-body" style={{ padding: "24px 36px", borderBottom: "1px solid rgba(0,212,170,0.08)" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "18px" }}>
               <Activity size={15} color="#f59e0b" />
               <h4 style={{ fontFamily: "'Space Mono', monospace", fontSize: "0.7rem", fontWeight: 700, color: "#f0f4f8", letterSpacing: "0.08em", textTransform: "uppercase" }}>
@@ -285,7 +294,7 @@ export default function SampleReport() {
           </div>
 
           {/* Animated Top Findings */}
-          <div style={{ padding: "24px 36px" }}>
+          <div className="sr-card-body" style={{ padding: "24px 36px" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "18px" }}>
               <TrendingUp size={15} color="#00d4aa" />
               <h4 style={{ fontFamily: "'Space Mono', monospace", fontSize: "0.7rem", fontWeight: 700, color: "#f0f4f8", letterSpacing: "0.08em", textTransform: "uppercase" }}>
@@ -293,7 +302,7 @@ export default function SampleReport() {
               </h4>
             </div>
             
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "16px" }}>
+            <div className="sr-top-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "16px" }}>
               {topFindings.map((finding, index) => (
                 <div
                   key={finding.id}
@@ -339,7 +348,7 @@ export default function SampleReport() {
         </div>
 
         {/* CTA */}
-        <div style={{ textAlign: "center", marginTop: "48px" }}>
+        <div className="sr-cta" style={{ textAlign: "center", marginTop: "48px" }}>
           <p style={{ color: "#4a5e72", fontSize: "0.9rem", marginBottom: "20px" }}>
             Get daily alerts for properties matching your criteria.
           </p>

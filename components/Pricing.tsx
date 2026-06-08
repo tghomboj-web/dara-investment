@@ -89,6 +89,7 @@ export default function Pricing() {
     <section
       id="pricing"
       style={{ padding: "120px 32px", position: "relative" }}
+      className="pricing-section"
     >
       {/* Background glow */}
       <div style={{ position: "absolute", inset: 0, pointerEvents: "none", overflow: "hidden" }}>
@@ -101,9 +102,17 @@ export default function Pricing() {
         }} />
       </div>
 
+      <style>{`
+        @media (max-width: 768px) {
+          .pricing-section { padding: 52px 20px !important; }
+          .pricing-header { margin-bottom: 32px !important; }
+          .pricing-grid { grid-template-columns: 1fr !important; gap: 12px !important; }
+          .pricing-card { padding: 22px 18px !important; }
+        }
+      `}</style>
       <div style={{ maxWidth: "1200px", margin: "0 auto", position: "relative" }}>
         {/* Header */}
-        <div style={{ textAlign: "center", marginBottom: "80px" }}>
+        <div className="pricing-header" style={{ textAlign: "center", marginBottom: "80px" }}>
           <span style={{
             fontFamily: "'Space Mono', monospace",
             display: "inline-block", color: "#00d4aa",
@@ -125,7 +134,7 @@ export default function Pricing() {
         </div>
 
         {/* Cards Grid */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "24px", alignItems: "stretch" }}>
+        <div className="pricing-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "24px", alignItems: "stretch" }}>
           {tiers.map((tier) => (
             <div
               key={tier.name}
@@ -139,6 +148,7 @@ export default function Pricing() {
                 display: "flex",
                 flexDirection: "column",
               }}
+              className="pricing-card"
             >
               {tier.popular && (
                 <div style={{ position: "absolute", top: "-12px", left: "50%", transform: "translateX(-50%)" }}>

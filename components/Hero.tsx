@@ -36,14 +36,27 @@ export default function Hero() {
           style={{ top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: "700px", height: "300px", background: "rgba(0,212,170,0.03)" }} />
       </div>
 
+      <style>{`
+        @media (max-width: 768px) {
+          #hero { padding-top: 88px !important; padding-bottom: 40px !important; min-height: auto !important; }
+          .hero-inner { padding: 0 20px !important; }
+          .hero-badge { margin-bottom: 16px !important; }
+          .hero-desc { margin-bottom: 18px !important; font-size: 0.88rem !important; }
+          .hero-pills { margin-bottom: 18px !important; gap: 6px !important; }
+          .hero-ctas { margin-bottom: 0 !important; gap: 8px !important; }
+          .hero-ctas a { padding: 11px 18px !important; font-size: 0.88rem !important; }
+          .hero-trust { display: none !important; }
+          .hero-h1 { margin-bottom: 12px !important; }
+        }
+      `}</style>
       <div
         style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 32px", width: "100%" }}
-        className="grid lg:grid-cols-2 gap-16 items-center"
+        className="hero-inner grid lg:grid-cols-2 gap-16 items-center"
       >
         {/* Left — text content */}
         <div style={{ position: "relative", zIndex: 10 }}>
           {/* Location badge */}
-          <div style={{
+          <div className="hero-badge" style={{
             display: "inline-flex", alignItems: "center", gap: "10px",
             padding: "6px 14px 6px 10px", borderRadius: "6px",
             background: "rgba(0,212,170,0.06)", border: "1px solid rgba(0,212,170,0.2)",
@@ -58,8 +71,8 @@ export default function Hero() {
           </div>
 
           {/* Heading */}
-          <h1 style={{
-            fontSize: "clamp(2rem, 4.5vw, 3.5rem)",
+          <h1 className="hero-h1" style={{
+            fontSize: "clamp(1.7rem, 5vw, 3.5rem)",
             fontWeight: 700,
             lineHeight: 1.1,
             color: "#f0f4f8",
@@ -72,7 +85,7 @@ export default function Hero() {
           </h1>
 
           {/* Description */}
-          <p style={{
+          <p className="hero-desc" style={{
             color: "#8b9eb0",
             fontSize: "1.05rem",
             lineHeight: 1.8,
@@ -84,7 +97,7 @@ export default function Hero() {
           </p>
 
           {/* Feature Pills */}
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", marginBottom: "36px" }}>
+          <div className="hero-pills" style={{ display: "flex", flexWrap: "wrap", gap: "10px", marginBottom: "36px" }}>
             {featurePills.map((feature) => (
               <div
                 key={feature}
@@ -102,7 +115,7 @@ export default function Hero() {
           </div>
 
           {/* CTA Buttons */}
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", marginBottom: "36px" }}>
+          <div className="hero-ctas" style={{ display: "flex", flexWrap: "wrap", gap: "12px", marginBottom: "36px" }}>
             <Link
               href="/free"
               style={{
@@ -134,7 +147,7 @@ export default function Hero() {
           </div>
 
           {/* Trust line */}
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "24px" }}>
+          <div className="hero-trust" style={{ display: "flex", flexWrap: "wrap", gap: "24px" }}>
             {["Charlotte-area focused", "Email + Telegram alerts", "Daily monitoring"].map((t) => (
               <div key={t} style={{ display: "flex", alignItems: "center", gap: "6px", color: "#4a5e72", fontSize: "0.82rem" }}>
                 <span style={{ color: "#00d4aa", fontWeight: 700, fontSize: "0.9rem" }}>✓</span>

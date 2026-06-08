@@ -50,15 +50,26 @@ export default function WhatMonitorChecks() {
     <section
       id="what-we-check"
       style={{ padding: "100px 32px", position: "relative" }}
-      className="bg-[#080c10]"
+      className="bg-[#080c10] wmc-section"
     >
       <div className="absolute inset-0 pointer-events-none">
         <div className="section-divider absolute top-0 left-0 right-0" />
       </div>
 
+      <style>{`
+        @media (max-width: 768px) {
+          .wmc-section { padding: 52px 20px !important; }
+          .wmc-header { margin-bottom: 28px !important; }
+          .wmc-grid { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
+          .wmc-card { padding: 16px 14px !important; }
+          .wmc-card h3 { font-size: 0.82rem !important; margin-bottom: 4px !important; }
+          .wmc-card p { font-size: 0.75rem !important; line-height: 1.5 !important; }
+          .wmc-icon { width: 30px !important; height: 30px !important; margin-bottom: 10px !important; }
+        }
+      `}</style>
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
         {/* Section header */}
-        <div style={{ textAlign: "center", marginBottom: "56px" }}>
+        <div className="wmc-header" style={{ textAlign: "center", marginBottom: "56px" }}>
           <span style={{
             fontFamily: "'Space Mono', monospace",
             display: "inline-block", color: "#00d4aa",
@@ -81,13 +92,13 @@ export default function WhatMonitorChecks() {
         </div>
 
         {/* Checks grid */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))", gap: "16px" }}>
+        <div className="wmc-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))", gap: "16px" }}>
           {checks.map((check, i) => {
             const Icon = check.icon;
             const isAmber = i % 4 === 1 || i % 4 === 2;
             const accent = isAmber ? "#f59e0b" : "#00d4aa";
             return (
-              <div key={i} style={{
+              <div key={i} className="wmc-card" style={{
                 padding: "24px",
                 borderRadius: "10px",
                 background: "#0d1117",
@@ -102,7 +113,7 @@ export default function WhatMonitorChecks() {
                 (e.currentTarget as HTMLElement).style.borderColor = `${accent}15`;
                 (e.currentTarget as HTMLElement).style.boxShadow = "none";
               }}>
-                <div style={{
+                <div className="wmc-icon" style={{
                   width: "38px", height: "38px", borderRadius: "8px",
                   background: `${accent}10`,
                   border: `1px solid ${accent}20`,

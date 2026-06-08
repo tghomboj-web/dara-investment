@@ -34,16 +34,27 @@ export default function HowItWorks() {
     <section
       id="how-it-works"
       style={{ padding: "120px 32px" }}
-      className="relative"
+      className="relative hiw-section"
     >
       <div className="absolute inset-0 pointer-events-none">
         <div className="section-divider absolute top-0 left-0 right-0" />
         <div className="section-divider absolute bottom-0 left-0 right-0" />
       </div>
 
+      <style>{`
+        @media (max-width: 768px) {
+          .hiw-section { padding: 52px 20px !important; }
+          .hiw-header { margin-bottom: 28px !important; }
+          .hiw-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
+          .hiw-card { padding: 20px 16px !important; }
+          .hiw-card h3 { font-size: 0.95rem !important; margin-bottom: 8px !important; }
+          .hiw-card p { font-size: 0.82rem !important; }
+          .hiw-icon { margin-bottom: 16px !important; }
+        }
+      `}</style>
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
         {/* Section header */}
-        <div style={{ textAlign: "center", marginBottom: "72px" }}>
+        <div className="hiw-header" style={{ textAlign: "center", marginBottom: "72px" }}>
           <span style={{
             fontFamily: "'Space Mono', monospace",
             display: "inline-block", color: "#00d4aa",
@@ -67,11 +78,11 @@ export default function HowItWorks() {
         </div>
 
         {/* Cards grid */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "20px" }}>
+        <div className="hiw-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "20px" }}>
           {steps.map((step, i) => {
             const Icon = step.icon;
             return (
-              <div key={i} style={{
+              <div key={i} className="hiw-card" style={{
                 background: "#0d1117",
                 border: `1px solid ${step.accent}22`,
                 borderRadius: "12px",
@@ -98,7 +109,7 @@ export default function HowItWorks() {
                   {step.step}
                 </div>
                 {/* Icon */}
-                <div style={{
+                <div className="hiw-icon" style={{
                   width: "44px", height: "44px", borderRadius: "10px",
                   background: `${step.accent}12`,
                   border: `1px solid ${step.accent}25`,
