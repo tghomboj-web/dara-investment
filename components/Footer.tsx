@@ -36,7 +36,7 @@ export default function Footer() {
               padding: "6px 14px", borderRadius: "6px",
               border: "1px solid rgba(0,212,170,0.25)",
               background: "rgba(0,212,170,0.06)",
-            }}>Join Beta</a>
+            }}>Get Started</a>
           </div>
         </div>
 

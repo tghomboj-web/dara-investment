@@ -90,7 +90,7 @@ export default function Navbar() {
               (e.currentTarget as HTMLElement).style.boxShadow = "none";
             }}
           >
-            Join Beta
+            Get Started
           </Link>
         </div>
 
@@ -129,7 +129,7 @@ export default function Navbar() {
               color: "#00d4aa", textDecoration: "none", fontSize: "0.9rem", fontWeight: 600,
             }}
           >
-            Join Beta
+            Get Started
           </Link>
         </div>
       )}

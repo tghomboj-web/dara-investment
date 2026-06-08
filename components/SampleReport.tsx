@@ -362,7 +362,7 @@ export default function SampleReport() {
               e.currentTarget.style.boxShadow = "0 0 30px rgba(0,212,170,0.3)";
             }}
           >
-            Join the Beta
+            Get Started — Free
             <ArrowRight size={15} />
           </a>
         </div>

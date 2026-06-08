@@ -42,7 +42,7 @@ export default function Hero() {
       >
         {/* Left — text content */}
         <div style={{ position: "relative", zIndex: 10 }}>
-          {/* Beta Badge — terminal-style */}
+          {/* Location badge */}
           <div style={{
             display: "inline-flex", alignItems: "center", gap: "10px",
             padding: "6px 14px 6px 10px", borderRadius: "6px",
@@ -52,9 +52,9 @@ export default function Hero() {
             <span style={{
               fontFamily: "'Space Mono', monospace",
               color: "#00d4aa", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.08em"
-            }}>BETA</span>
+            }}>Charlotte, NC</span>
             <span style={{ width: "1px", height: "14px", background: "rgba(0,212,170,0.25)" }} />
-            <span style={{ color: "#8b9eb0", fontSize: "0.8rem" }}>Charlotte Area · Free during beta</span>
+            <span style={{ color: "#8b9eb0", fontSize: "0.8rem" }}>Free &amp; paid tiers available</span>
           </div>
 
           {/* Heading */}
@@ -116,7 +116,7 @@ export default function Hero() {
               }}
             >
               <Search size={16} />
-              Join Beta — Free
+              Get Started — Free
             </Link>
             <Link
               href="#sample-report"
