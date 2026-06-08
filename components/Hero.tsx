@@ -104,7 +104,7 @@ export default function Hero() {
           {/* CTA Buttons */}
           <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", marginBottom: "36px" }}>
             <Link
-              href="/pro"
+              href="/free"
               style={{
                 display: "inline-flex", alignItems: "center", gap: "8px",
                 padding: "14px 28px", borderRadius: "8px",

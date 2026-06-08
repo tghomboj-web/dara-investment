@@ -344,7 +344,7 @@ export default function SampleReport() {
             Get daily alerts for properties matching your criteria.
           </p>
           <a
-            href="/pro"
+            href="/free"
             style={{
               display: "inline-flex", alignItems: "center", gap: "8px",
               padding: "13px 28px", borderRadius: "8px",

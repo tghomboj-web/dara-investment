@@ -10,20 +10,16 @@ const tiers = [
     tier: "Tier 0",
     price: "$0",
     period: "forever",
-    description: "Free alerts only. Basic daily monitoring with standard criteria.",
-    cta: "Join Free",
+    description: "Daily monitoring with standard defaults. No configuration needed.",
+    cta: "Start Free",
+    ctaHref: "/free",
     ctaStyle: "outline",
     features: [
-      "Daily email digest",
+      "Default Charlotte ZIP codes",
       "Standard score threshold",
-      "Default Charlotte ZIPs",
-      "Limited findings per day",
-    ],
-    notIncluded: [
-      "Custom filters",
+      "Up to 5 findings per day",
+      "Daily email digest",
       "Telegram alerts",
-      "Price range selection",
-      "Property type filters",
     ],
   },
   {
@@ -31,66 +27,51 @@ const tiers = [
     tier: "Tier 1",
     price: "$9",
     period: "/month",
-    description: "Essential filters for starting investors.",
+    description: "Add your own filters on top of the free tier.",
     cta: "Get Basic",
+    ctaHref: "/basic",
     ctaStyle: "primary",
     popular: false,
     features: [
       "Everything in Free",
-      "Price range filter",
-      "Property type selection",
-      "Beds/baths filter",
-      "Minimum score (45+)",
-      "Deal signals: new listings, price drops",
-      "Notification preferences (Email, Telegram, SMS)",
-      "Up to 5 ZIP codes",
+      "Custom price range",
+      "Property type filter",
+      "Up to 5 custom ZIP codes",
     ],
-    notIncluded: [],
   },
   {
     name: "Smart",
     tier: "Tier 2",
     price: "$19",
     period: "/month",
-    description: "Smart investment controls for serious investors.",
+    description: "Market intelligence filters for serious investors.",
     cta: "Get Smart",
+    ctaHref: "/smart",
     ctaStyle: "primary",
     popular: true,
     features: [
       "Everything in Basic",
-      "Investment strategy: Balanced, Rental, Flip, Value-gap",
-      "Minimum AVM discount (10%+ below estimate)",
-      "Rent/payment ratio filter",
-      "Max days on market (30/60/90)",
-      "Price-drop alert threshold",
-      "Recent finds window (7/14/30 days)",
-      "Up to 10 ZIP codes",
+      "AVM discount & rent ratio filters",
+      "Investment strategy selection",
+      "Up to 10 custom ZIP codes",
     ],
-    notIncluded: [],
   },
   {
     name: "Pro",
     tier: "Tier 3",
     price: "$39",
     period: "/month",
-    description: "Advanced controls for professional investors.",
+    description: "Full control over every data point and filter.",
     cta: "Get Pro",
+    ctaHref: "/pro",
     ctaStyle: "primary",
     popular: false,
     features: [
       "Everything in Smart",
-      "Square footage range",
-      "Year built range",
-      "Lot size filter",
-      "Maximum HOA filter",
-      "Exclude missing AVM/rent data",
-      "Exclude low-confidence estimates",
-      "Data-quality flags",
-      "Separate rental and flip scores",
-      "Up to 15 ZIP codes",
-      "Priority support",
+      "Sqft, year built & HOA filters",
+      "Data-quality & confidence flags",
+      "Up to 15 custom ZIP codes",
     ],
-    notIncluded: [],
   },
 ];
 
@@ -198,7 +179,7 @@ export default function Pricing() {
 
               {/* CTA */}
               <Link
-                href="/pro"
+                href={tier.ctaHref}
                 style={{
                   display: "flex", alignItems: "center", justifyContent: "center", gap: "6px",
                   width: "100%", padding: "12px 20px", borderRadius: "10px",
@@ -219,12 +200,6 @@ export default function Pricing() {
                   <div key={i} style={featureRowStyle}>
                     <Check size={13} style={{ color: "#00d4aa", flexShrink: 0, marginTop: "3px" }} />
                     <span style={{ color: "#8b9eb0" }}>{f}</span>
-                  </div>
-                ))}
-                {tier.notIncluded?.map((f, i) => (
-                  <div key={`no-${i}`} style={featureRowStyle}>
-                    <span style={{ width: "14px", flexShrink: 0, color: "#374151", textAlign: "center", marginTop: "3px" }}>—</span>
-                    <span style={{ color: "#2a3a4a" }}>{f}</span>
                   </div>
                 ))}
               </div>

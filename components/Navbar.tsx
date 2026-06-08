@@ -70,8 +70,8 @@ export default function Navbar() {
 
         {/* CTA */}
         <div className="hidden md:flex items-center gap-3">
-          <Link
-            href="/pro"
+          <a
+            href="#pricing"
             style={{
               fontSize: "0.85rem", fontWeight: 600,
               padding: "8px 20px", borderRadius: "8px",
@@ -91,7 +91,7 @@ export default function Navbar() {
             }}
           >
             Get Started
-          </Link>
+          </a>
         </div>
 
         <button
@@ -120,17 +120,18 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
-          <Link
-            href="/pro"
+          <a
+            href="#pricing"
             onClick={() => setMenuOpen(false)}
             style={{
               textAlign: "center", padding: "10px 20px", borderRadius: "8px",
               background: "rgba(0,212,170,0.1)", border: "1px solid rgba(0,212,170,0.3)",
               color: "#00d4aa", textDecoration: "none", fontSize: "0.9rem", fontWeight: 600,
+              display: "block",
             }}
           >
             Get Started
-          </Link>
+          </a>
         </div>
       )}
     </nav>

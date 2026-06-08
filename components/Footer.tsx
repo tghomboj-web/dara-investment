@@ -31,7 +31,7 @@ export default function Footer() {
                 {["How It Works", "Sample Report", "Pricing"][i]}
               </a>
             ))}
-            <a href="/pro" style={{
+            <a href="#pricing" style={{
               fontSize: "0.82rem", fontWeight: 600, color: "#00d4aa", textDecoration: "none",
               padding: "6px 14px", borderRadius: "6px",
               border: "1px solid rgba(0,212,170,0.25)",
