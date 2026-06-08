@@ -49,83 +49,72 @@ export default function WhatMonitorChecks() {
   return (
     <section
       id="what-we-check"
-      style={{ padding: "120px 32px", position: "relative" }}
-      className="bg-[#0a0a0f]"
+      style={{ padding: "100px 32px", position: "relative" }}
+      className="bg-[#080c10]"
     >
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-indigo-500/30 to-transparent" />
+        <div className="section-divider absolute top-0 left-0 right-0" />
       </div>
 
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
         {/* Section header */}
-        <div style={{ textAlign: "center", marginBottom: "60px" }}>
-          <span
-            style={{
-              display: "inline-block",
-              color: "#818cf8",
-              fontSize: "0.75rem",
-              fontWeight: 700,
-              letterSpacing: "0.15em",
-              textTransform: "uppercase",
-              marginBottom: "16px",
-            }}
-          >
-            What We Monitor
+        <div style={{ textAlign: "center", marginBottom: "56px" }}>
+          <span style={{
+            fontFamily: "'Space Mono', monospace",
+            display: "inline-block", color: "#00d4aa",
+            fontSize: "0.65rem", fontWeight: 700,
+            letterSpacing: "0.15em", textTransform: "uppercase",
+            marginBottom: "14px",
+          }}>
+            WHAT WE MONITOR
           </span>
-          <h2
-            style={{
-              fontSize: "clamp(2rem, 4vw, 3rem)",
-              fontWeight: 800,
-              color: "#fff",
-              marginBottom: "20px",
-              lineHeight: 1.2,
-            }}
-          >
+          <h2 style={{
+            fontSize: "clamp(1.8rem, 3.5vw, 2.75rem)",
+            fontWeight: 700, color: "#f0f4f8",
+            marginBottom: "14px", lineHeight: 1.2, letterSpacing: "-0.02em",
+          }}>
             What the <span className="gradient-text">Monitor Checks</span>
           </h2>
-          <p style={{ color: "#9ca3af", fontSize: "1.1rem", maxWidth: "560px", margin: "0 auto", lineHeight: 1.7 }}>
+          <p style={{ color: "#8b9eb0", fontSize: "1rem", maxWidth: "480px", margin: "0 auto", lineHeight: 1.75 }}>
             Objective criteria applied consistently across all monitored properties.
           </p>
         </div>
 
         {/* Checks grid */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-            gap: "24px",
-          }}
-        >
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))", gap: "16px" }}>
           {checks.map((check, i) => {
             const Icon = check.icon;
+            const isAmber = i % 4 === 1 || i % 4 === 2;
+            const accent = isAmber ? "#f59e0b" : "#00d4aa";
             return (
-              <div
-                key={i}
-                style={{
-                  padding: "28px",
-                  borderRadius: "16px",
-                  background: "rgba(255,255,255,0.03)",
-                  border: "1px solid rgba(255,255,255,0.06)",
-                }}
-              >
-                <div
-                  style={{
-                    width: "44px",
-                    height: "44px",
-                    borderRadius: "12px",
-                    background: "rgba(99,102,241,0.1)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    marginBottom: "16px",
-                  }}
-                >
-                  <Icon size={20} color="#818cf8" />
+              <div key={i} style={{
+                padding: "24px",
+                borderRadius: "10px",
+                background: "#0d1117",
+                border: `1px solid ${accent}15`,
+                transition: "border-color 0.25s, box-shadow 0.25s",
+              }}
+              onMouseEnter={e => {
+                (e.currentTarget as HTMLElement).style.borderColor = `${accent}30`;
+                (e.currentTarget as HTMLElement).style.boxShadow = `0 0 20px ${accent}0a`;
+              }}
+              onMouseLeave={e => {
+                (e.currentTarget as HTMLElement).style.borderColor = `${accent}15`;
+                (e.currentTarget as HTMLElement).style.boxShadow = "none";
+              }}>
+                <div style={{
+                  width: "38px", height: "38px", borderRadius: "8px",
+                  background: `${accent}10`,
+                  border: `1px solid ${accent}20`,
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  marginBottom: "14px",
+                }}>
+                  <Icon size={17} color={accent} />
                 </div>
-                <h3 style={{ fontSize: "1rem", fontWeight: 600, color: "#fff", marginBottom: "8px" }}>
+                <h3 style={{ fontSize: "0.9rem", fontWeight: 600, color: "#f0f4f8", marginBottom: "6px" }}>
                   {check.title}
                 </h3>
-                <p style={{ color: "#6b7280", fontSize: "0.9rem", lineHeight: 1.6 }}>
+                <p style={{ color: "#8b9eb0", fontSize: "0.82rem", lineHeight: 1.65 }}>
                   {check.description}
                 </p>
               </div>

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Dara Investment — Smart Property Alerts",
+  title: "Investment Property Monitor — Charlotte Area",
   description:
-    "Get daily investment property alerts tailored to your criteria. Join our Telegram channel for free or upgrade to personalized notifications.",
+    "AI-driven daily property monitoring for Charlotte-area investors. Score-based filtering, custom ZIP profiles, and daily reports delivered to your inbox.",
 };
 
 export default function RootLayout({

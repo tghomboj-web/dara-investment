@@ -115,7 +115,7 @@ export default function Pricing() {
           position: "absolute", top: "50%", left: "50%",
           transform: "translate(-50%,-50%)",
           width: "600px", height: "600px",
-          background: "rgba(99,102,241,0.08)",
+          background: "rgba(0,212,170,0.05)",
           borderRadius: "50%", filter: "blur(80px)",
         }} />
       </div>
@@ -124,21 +124,22 @@ export default function Pricing() {
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: "80px" }}>
           <span style={{
-            display: "inline-block", color: "#818cf8",
-            fontSize: "0.75rem", fontWeight: 700,
+            fontFamily: "'Space Mono', monospace",
+            display: "inline-block", color: "#00d4aa",
+            fontSize: "0.65rem", fontWeight: 700,
             letterSpacing: "0.15em", textTransform: "uppercase",
             marginBottom: "16px",
           }}>
-            Subscription Tiers
+            PRICING
           </span>
           <h2 style={{
-            fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 800,
-            color: "#fff", marginBottom: "20px", lineHeight: 1.2,
+            fontSize: "clamp(1.8rem, 3.5vw, 2.75rem)", fontWeight: 700,
+            color: "#f0f4f8", marginBottom: "16px", lineHeight: 1.2, letterSpacing: "-0.02em",
           }}>
             Choose Your <span className="gradient-text">Monitor Level</span>
           </h2>
-          <p style={{ color: "#9ca3af", fontSize: "1.1rem", maxWidth: "560px", margin: "0 auto", lineHeight: 1.7 }}>
-            Four levels of control. Start free, upgrade as your investment strategy evolves.
+          <p style={{ color: "#8b9eb0", fontSize: "1rem", maxWidth: "520px", margin: "0 auto", lineHeight: 1.75 }}>
+            Four levels of control. Start free, upgrade as your strategy evolves.
           </p>
         </div>
 
@@ -147,11 +148,12 @@ export default function Pricing() {
           {tiers.map((tier) => (
             <div
               key={tier.name}
-              className={`card-glass ${tier.popular ? "glow-purple" : ""}`}
               style={{
-                borderRadius: "20px",
-                padding: "36px 28px",
-                border: tier.popular ? "1px solid rgba(99,102,241,0.4)" : "1px solid rgba(255,255,255,0.1)",
+                background: "#0d1117",
+                borderRadius: "12px",
+                padding: "32px 24px",
+                border: tier.popular ? "1px solid rgba(0,212,170,0.35)" : "1px solid rgba(0,212,170,0.1)",
+                boxShadow: tier.popular ? "0 0 40px rgba(0,212,170,0.1)" : "none",
                 position: "relative",
                 display: "flex",
                 flexDirection: "column",
@@ -162,10 +164,11 @@ export default function Pricing() {
                   <span style={{
                     display: "inline-flex", alignItems: "center", gap: "4px",
                     padding: "4px 12px", borderRadius: "999px",
-                    background: "linear-gradient(135deg,#6366f1,#9333ea)",
-                    color: "#fff", fontSize: "0.7rem", fontWeight: 700,
+                    background: "rgba(0,212,170,0.15)",
+                    border: "1px solid rgba(0,212,170,0.4)",
+                    color: "#00d4aa", fontSize: "0.65rem", fontWeight: 700,
+                    fontFamily: "'Space Mono', monospace",
                   }}>
-                    <Star size={10} fill="white" />
                     Most Popular
                   </span>
                 </div>
@@ -173,7 +176,8 @@ export default function Pricing() {
 
               {/* Tier badge */}
               <span style={{
-                fontSize: "0.65rem", color: "#6b7280", fontWeight: 700,
+                fontFamily: "'Space Mono', monospace",
+                fontSize: "0.6rem", color: "#4a5e72", fontWeight: 700,
                 letterSpacing: "0.15em", textTransform: "uppercase",
                 marginBottom: "8px",
               }}>
@@ -181,14 +185,14 @@ export default function Pricing() {
               </span>
 
               {/* Name & Price */}
-              <h3 style={{ fontSize: "1.5rem", fontWeight: 800, color: "#fff", marginBottom: "4px" }}>
+              <h3 style={{ fontSize: "1.4rem", fontWeight: 700, color: "#f0f4f8", marginBottom: "4px" }}>
                 {tier.name}
               </h3>
               <div style={{ display: "flex", alignItems: "flex-end", gap: "4px", marginBottom: "12px" }}>
                 <span style={{ fontSize: "2.5rem", fontWeight: 900, color: "#fff", lineHeight: 1 }}>{tier.price}</span>
-                <span style={{ color: "#6b7280", fontSize: "0.85rem", paddingBottom: "4px" }}>{tier.period}</span>
+                <span style={{ color: "#4a5e72", fontSize: "0.85rem", paddingBottom: "4px" }}>{tier.period}</span>
               </div>
-              <p style={{ color: "#9ca3af", fontSize: "0.85rem", lineHeight: 1.6, marginBottom: "24px", minHeight: "40px" }}>
+              <p style={{ color: "#8b9eb0", fontSize: "0.85rem", lineHeight: 1.6, marginBottom: "24px", minHeight: "40px" }}>
                 {tier.description}
               </p>
 
@@ -198,9 +202,10 @@ export default function Pricing() {
                 style={{
                   display: "flex", alignItems: "center", justifyContent: "center", gap: "6px",
                   width: "100%", padding: "12px 20px", borderRadius: "10px",
-                  background: tier.ctaStyle === "primary" ? "linear-gradient(135deg,#6366f1,#9333ea)" : "transparent",
-                  border: tier.ctaStyle === "outline" ? "1px solid rgba(255,255,255,0.2)" : "none",
-                  color: "#fff", fontWeight: 600, fontSize: "0.9rem",
+                  background: tier.ctaStyle === "primary" ? "#00d4aa" : "transparent",
+                  border: tier.ctaStyle === "outline" ? "1px solid rgba(0,212,170,0.2)" : "none",
+                  color: tier.ctaStyle === "primary" ? "#080c10" : "#8b9eb0",
+                  fontWeight: 700, fontSize: "0.85rem",
                   textDecoration: "none", marginBottom: "24px",
                 }}
               >
@@ -212,14 +217,14 @@ export default function Pricing() {
               <div style={{ flex: 1 }}>
                 {tier.features.map((f, i) => (
                   <div key={i} style={featureRowStyle}>
-                    <Check size={14} style={{ color: "#4ade80", flexShrink: 0, marginTop: "3px" }} />
-                    <span style={{ color: "#d1d5db" }}>{f}</span>
+                    <Check size={13} style={{ color: "#00d4aa", flexShrink: 0, marginTop: "3px" }} />
+                    <span style={{ color: "#8b9eb0" }}>{f}</span>
                   </div>
                 ))}
                 {tier.notIncluded?.map((f, i) => (
                   <div key={`no-${i}`} style={featureRowStyle}>
                     <span style={{ width: "14px", flexShrink: 0, color: "#374151", textAlign: "center", marginTop: "3px" }}>—</span>
-                    <span style={{ color: "#4b5563" }}>{f}</span>
+                    <span style={{ color: "#2a3a4a" }}>{f}</span>
                   </div>
                 ))}
               </div>
@@ -228,7 +233,7 @@ export default function Pricing() {
         </div>
 
         {/* Note */}
-        <p style={{ textAlign: "center", color: "#4b5563", fontSize: "0.8rem", marginTop: "48px" }}>
+        <p style={{ textAlign: "center", color: "#4a5e72", fontSize: "0.78rem", fontFamily: "'Space Mono', monospace", marginTop: "48px" }}>
           All tiers include daily monitoring. Upgrade or downgrade anytime. Cancel anytime.
         </p>
       </div>
