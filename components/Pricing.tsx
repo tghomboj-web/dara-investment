@@ -164,7 +164,7 @@ export default function Pricing() {
                   <span style={{
                     display: "inline-flex", alignItems: "center", gap: "4px",
                     padding: "4px 12px", borderRadius: "999px",
-                    background: "rgba(0,212,170,0.15)",
+                    background: "#0d1117",
                     border: "1px solid rgba(0,212,170,0.4)",
                     color: "#00d4aa", fontSize: "0.65rem", fontWeight: 700,
                     fontFamily: "'Space Mono', monospace",
