@@ -1,238 +1,201 @@
 "use client";
 
 import Link from "next/link";
-import { Search, ArrowRight, CheckCircle, Home } from "lucide-react";
-
-const featurePills = [
-  "Daily Monitoring",
-  "Score-Based Filtering",
-  "Charlotte ZIP Profiles",
-  "Email + Telegram Alerts",
-];
-
-const scrollingProperties = [
-  { address: "4521 Oakwood Ave, Charlotte", beds: 3, baths: 2, price: "$285,000", score: 78, status: "Just Listed", badge: "green" },
-  { address: "8923 Park Ridge Dr, Charlotte", beds: 4, baths: 2.5, price: "$340,000", score: 72, status: "Price Drop", badge: "yellow" },
-  { address: "1567 Maple Creek Rd, Charlotte", beds: 3, baths: 2, price: "$265,000", score: 69, status: "Back on Market", badge: "purple" },
-  { address: "2314 Riverbend Rd, Charlotte", beds: 3, baths: 2, price: "$320,000", score: 84, status: "New Listing", badge: "green" },
-  { address: "7896 Hunters Pointe, Charlotte", beds: 4, baths: 3, price: "$295,000", score: 81, status: "Just Listed", badge: "green" },
-  { address: "5432 Mountain View, Charlotte", beds: 3, baths: 2.5, price: "$310,000", score: 75, status: "Price Drop", badge: "yellow" },
-];
+import { ArrowRight, FileText, Home } from "lucide-react";
 
 export default function Hero() {
   return (
     <section
       id="hero"
-      style={{ minHeight: "100vh", paddingTop: "100px", paddingBottom: "80px" }}
-      className="relative flex items-center overflow-hidden bg-grid"
+      style={{ paddingTop: "120px", paddingBottom: "80px", background: "#ffffff" }}
+      className="relative"
     >
-      {/* Ambient glows — teal + amber */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute rounded-full blur-3xl animate-pulse-glow"
-          style={{ top: "15%", left: "-5%", width: "500px", height: "500px", background: "rgba(0,212,170,0.09)" }} />
-        <div className="absolute rounded-full blur-3xl animate-pulse-glow"
-          style={{ bottom: "10%", right: "-5%", width: "420px", height: "420px", background: "rgba(245,158,11,0.07)", animationDelay: "1.5s" }} />
-        <div className="absolute rounded-full blur-3xl"
-          style={{ top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: "700px", height: "300px", background: "rgba(0,212,170,0.03)" }} />
-      </div>
-
-      <style>{`
-        @media (max-width: 768px) {
-          #hero { padding-top: 88px !important; padding-bottom: 40px !important; min-height: auto !important; }
-          .hero-inner { padding: 0 20px !important; }
-          .hero-badge { margin-bottom: 16px !important; }
-          .hero-desc { margin-bottom: 18px !important; font-size: 0.88rem !important; }
-          .hero-pills { margin-bottom: 18px !important; gap: 6px !important; }
-          .hero-ctas { margin-bottom: 0 !important; gap: 8px !important; }
-          .hero-ctas a { padding: 11px 18px !important; font-size: 0.88rem !important; }
-          .hero-trust { display: none !important; }
-          .hero-h1 { margin-bottom: 12px !important; }
-        }
-      `}</style>
       <div
-        style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 32px", width: "100%" }}
-        className="hero-inner grid lg:grid-cols-2 gap-16 items-center"
+        style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px", width: "100%" }}
+        className="grid lg:grid-cols-2 gap-16 items-center"
       >
         {/* Left — text content */}
         <div style={{ position: "relative", zIndex: 10 }}>
-          {/* Location badge */}
-          <div className="hero-badge" style={{
-            display: "inline-flex", alignItems: "center", gap: "10px",
-            padding: "6px 14px 6px 10px", borderRadius: "6px",
-            background: "rgba(0,212,170,0.06)", border: "1px solid rgba(0,212,170,0.2)",
-            marginBottom: "32px",
+          {/* Market badge */}
+          <div style={{
+            display: "inline-flex", alignItems: "center", gap: "8px",
+            padding: "6px 12px", borderRadius: "6px",
+            background: "#f1f5f9", border: "1px solid #e2e8f0",
+            marginBottom: "24px",
           }}>
             <span style={{
               fontFamily: "'Space Mono', monospace",
-              color: "#00d4aa", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.08em"
-            }}>Charlotte, NC</span>
-            <span style={{ width: "1px", height: "14px", background: "rgba(0,212,170,0.25)" }} />
-            <span style={{ color: "#8b9eb0", fontSize: "0.8rem" }}>Free &amp; paid tiers available</span>
+              color: "#1e40af", fontSize: "0.65rem", fontWeight: 600, letterSpacing: "0.1em"
+            }}>INITIAL MARKET</span>
+            <span style={{ width: "1px", height: "12px", background: "#cbd5e1" }} />
+            <span style={{ color: "#64748b", fontSize: "0.75rem" }}>Charlotte, NC</span>
           </div>
 
           {/* Heading */}
-          <h1 className="hero-h1" style={{
-            fontSize: "clamp(1.7rem, 5vw, 3.5rem)",
+          <h1 style={{
+            fontSize: "clamp(2rem, 4vw, 3rem)",
             fontWeight: 700,
-            lineHeight: 1.1,
-            color: "#f0f4f8",
-            marginBottom: "24px",
+            lineHeight: 1.15,
+            color: "#1a1f2c",
+            marginBottom: "20px",
             letterSpacing: "-0.02em",
           }}>
-            Daily Investment<br />
-            Property Monitor{" "}
-            <span className="gradient-text">for Charlotte</span>
+            Turn Daily Property Data Into{" "}
+            <span className="gradient-text">Actionable Investment Opportunities</span>
           </h1>
 
           {/* Description */}
-          <p className="hero-desc" style={{
-            color: "#8b9eb0",
+          <p style={{
+            color: "#475569",
             fontSize: "1.05rem",
-            lineHeight: 1.8,
-            maxWidth: "500px",
-            marginBottom: "36px",
+            lineHeight: 1.75,
+            maxWidth: "520px",
+            marginBottom: "32px",
           }}>
-            Objective daily scans across Charlotte-area ZIPs. Every property scored 
-            by price, listing status, and market signals — then delivered to your inbox.
+            Intelligent property monitoring built for real estate investors. Objective scoring, market signals, and daily reports delivered to your inbox.
           </p>
 
-          {/* Feature Pills */}
-          <div className="hero-pills" style={{ display: "flex", flexWrap: "wrap", gap: "10px", marginBottom: "36px" }}>
-            {featurePills.map((feature) => (
-              <div
-                key={feature}
-                style={{
-                  display: "inline-flex", alignItems: "center", gap: "6px",
-                  padding: "6px 14px", borderRadius: "6px",
-                  background: "rgba(0,212,170,0.06)", border: "1px solid rgba(0,212,170,0.15)",
-                  color: "#8b9eb0", fontSize: "0.8rem", fontWeight: 500,
-                }}
-              >
-                <CheckCircle size={13} color="#00d4aa" />
-                {feature}
-              </div>
-            ))}
-          </div>
-
           {/* CTA Buttons */}
-          <div className="hero-ctas" style={{ display: "flex", flexWrap: "wrap", gap: "12px", marginBottom: "36px" }}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", marginBottom: "16px" }}>
             <Link
               href="/free"
               style={{
                 display: "inline-flex", alignItems: "center", gap: "8px",
                 padding: "14px 28px", borderRadius: "8px",
-                background: "#00d4aa", color: "#080c10",
-                fontWeight: 700, fontSize: "0.95rem", textDecoration: "none",
+                background: "#1e40af", color: "#ffffff",
+                fontWeight: 600, fontSize: "0.95rem", textDecoration: "none",
                 letterSpacing: "0.01em",
-                boxShadow: "0 0 30px rgba(0,212,170,0.3)",
                 transition: "all 0.2s ease",
               }}
+              onMouseEnter={e => {
+                (e.currentTarget as HTMLElement).style.background = "#1e3a8a";
+              }}
+              onMouseLeave={e => {
+                (e.currentTarget as HTMLElement).style.background = "#1e40af";
+              }}
             >
-              <Search size={16} />
-              Get Started — Free
+              Start Free
+              <ArrowRight size={16} />
             </Link>
             <Link
               href="#sample-report"
               style={{
                 display: "inline-flex", alignItems: "center", gap: "8px",
                 padding: "14px 24px", borderRadius: "8px",
-                border: "1px solid rgba(0,212,170,0.2)", color: "#8b9eb0",
+                border: "1px solid #e2e8f0", color: "#475569",
                 fontWeight: 500, fontSize: "0.95rem", textDecoration: "none",
                 transition: "all 0.2s",
+                background: "#ffffff",
+              }}
+              onMouseEnter={e => {
+                (e.currentTarget as HTMLElement).style.borderColor = "#1e40af";
+                (e.currentTarget as HTMLElement).style.color = "#1e40af";
+              }}
+              onMouseLeave={e => {
+                (e.currentTarget as HTMLElement).style.borderColor = "#e2e8f0";
+                (e.currentTarget as HTMLElement).style.color = "#475569";
               }}
             >
               View Sample Report
-              <ArrowRight size={16} />
             </Link>
           </div>
 
-          {/* Trust line */}
-          <div className="hero-trust" style={{ display: "flex", flexWrap: "wrap", gap: "24px" }}>
-            {["Charlotte-area focused", "Email + Telegram alerts", "Daily monitoring"].map((t) => (
-              <div key={t} style={{ display: "flex", alignItems: "center", gap: "6px", color: "#4a5e72", fontSize: "0.82rem" }}>
-                <span style={{ color: "#00d4aa", fontWeight: 700, fontSize: "0.9rem" }}>✓</span>
-                {t}
-              </div>
-            ))}
-          </div>
+          <p style={{ color: "#64748b", fontSize: "0.82rem" }}>
+            No credit card required for Free tier. Cancel anytime.
+          </p>
         </div>
 
-        {/* Right — Scrolling Property Ticker */}
-        <div className="hidden lg:flex flex-col gap-5" style={{ paddingTop: "16px", width: "380px" }}>
-          <style>{`
-            .property-scroll { animation: scroll-up 22s linear infinite; }
-            .property-scroll:hover { animation-play-state: paused; }
-            .p-card { transition: all 0.25s ease; }
-            .p-card:hover { background: rgba(0,212,170,0.06) !important; border-color: rgba(0,212,170,0.25) !important; }
-          `}</style>
-          
+        {/* Right — Report Preview Card */}
+        <div style={{ position: "relative" }}>
           <div style={{
-            background: "#0d1117",
-            border: "1px solid rgba(0,212,170,0.15)",
+            background: "#ffffff",
+            border: "1px solid #e2e8f0",
             borderRadius: "12px",
             overflow: "hidden",
-            height: "320px",
-            boxShadow: "0 0 40px rgba(0,212,170,0.08)",
+            boxShadow: "0 4px 24px rgba(0,0,0,0.06)",
           }}>
             {/* Header */}
             <div style={{
-              padding: "12px 18px",
-              borderBottom: "1px solid rgba(0,212,170,0.1)",
+              padding: "16px 20px",
+              borderBottom: "1px solid #f1f5f9",
               display: "flex", alignItems: "center", justifyContent: "space-between",
+              background: "#fcfcfd",
             }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                <span style={{ fontFamily: "'Space Mono', monospace", color: "#00d4aa", fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.1em" }}>
-                  DAILY MONITOR
-                </span>
-                <span style={{ color: "#4a5e72", fontSize: "0.65rem" }}>·</span>
-                <span style={{ color: "#4a5e72", fontSize: "0.65rem" }}>Charlotte</span>
+              <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                <div style={{
+                  width: "32px", height: "32px", borderRadius: "6px",
+                  background: "rgba(30, 64, 175, 0.1)",
+                  border: "1px solid rgba(30, 64, 175, 0.2)",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                }}>
+                  <FileText size={14} color="#1e40af" />
+                </div>
+                <div>
+                  <p style={{ color: "#1a1f2c", fontWeight: 600, fontSize: "0.9rem" }}>Daily Report</p>
+                  <p style={{ fontFamily: "'Space Mono', monospace", color: "#64748b", fontSize: "0.65rem" }}>June 30, 2026</p>
+                </div>
               </div>
-              <span style={{ fontFamily: "'Space Mono', monospace", color: "#4a5e72", fontSize: "0.6rem" }}>
-                12 new today
+              <span style={{ fontFamily: "'Space Mono', monospace", color: "#64748b", fontSize: "0.62rem" }}>
+                ILLUSTRATIVE
               </span>
             </div>
 
-            {/* Scrolling Properties */}
-            <div style={{ height: "262px", overflow: "hidden", position: "relative" }}>
-              <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "28px", background: "linear-gradient(to bottom, #0d1117, transparent)", zIndex: 10, pointerEvents: "none" }} />
-              <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "28px", background: "linear-gradient(to top, #0d1117, transparent)", zIndex: 10, pointerEvents: "none" }} />
-              
-              <div className="property-scroll" style={{ padding: "8px 12px" }}>
-                {[...scrollingProperties, ...scrollingProperties].map((property, i) => (
-                  <div key={i} className="p-card" style={{
-                    display: "flex", alignItems: "center", gap: "10px",
-                    padding: "10px 10px", marginBottom: "6px", borderRadius: "8px",
-                    background: "rgba(255,255,255,0.02)",
-                    border: "1px solid rgba(255,255,255,0.04)",
-                    cursor: "pointer",
+            {/* Sample Finding */}
+            <div style={{ padding: "20px", background: "#ffffff" }}>
+              <div style={{
+                padding: "14px",
+                borderRadius: "8px",
+                background: "#f8f9fa",
+                border: "1px solid #e2e8f0",
+              }}>
+                <div style={{ display: "flex", alignItems: "flex-start", gap: "10px", marginBottom: "10px" }}>
+                  <div style={{
+                    width: "28px", height: "28px", borderRadius: "6px",
+                    background: "rgba(16, 185, 129, 0.1)",
+                    border: "1px solid rgba(16, 185, 129, 0.2)",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    flexShrink: 0,
                   }}>
-                    <div style={{
-                      width: "32px", height: "32px", borderRadius: "6px", flexShrink: 0,
-                      background: property.badge === "green" ? "rgba(0,212,170,0.1)" : property.badge === "yellow" ? "rgba(245,158,11,0.1)" : "rgba(0,212,170,0.06)",
-                      border: `1px solid ${property.badge === "green" ? "rgba(0,212,170,0.2)" : property.badge === "yellow" ? "rgba(245,158,11,0.2)" : "rgba(0,212,170,0.1)"}`,
-                      display: "flex", alignItems: "center", justifyContent: "center",
-                    }}>
-                      <Home size={14} color={property.badge === "yellow" ? "#f59e0b" : "#00d4aa"} />
-                    </div>
-                    <div style={{ flex: 1, minWidth: 0 }}>
-                      <p style={{ color: "#f0f4f8", fontWeight: 500, fontSize: "0.78rem", marginBottom: "2px", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
-                        {property.address}
-                      </p>
-                      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                        <span style={{ color: "#4a5e72", fontSize: "0.68rem" }}>{property.beds}bd · {property.baths}ba</span>
-                        <span style={{ color: property.badge === "yellow" ? "#f59e0b" : "#00d4aa", fontSize: "0.62rem", fontWeight: 600 }}>
-                          {property.status}
-                        </span>
-                      </div>
-                    </div>
-                    <div style={{ textAlign: "right", flexShrink: 0 }}>
-                      <p style={{ color: "#f0f4f8", fontWeight: 600, fontSize: "0.82rem" }}>{property.price}</p>
-                      <span style={{ fontFamily: "'Space Mono', monospace", color: "#00d4aa", fontSize: "0.62rem" }}>
-                        {property.score}
-                      </span>
-                    </div>
+                    <Home size={12} color="#10b981" />
                   </div>
-                ))}
+                  <div style={{ flex: 1 }}>
+                    <p style={{ color: "#1a1f2c", fontWeight: 600, fontSize: "0.85rem", marginBottom: "2px" }}>
+                      4521 Oakwood Ave, Charlotte
+                    </p>
+                    <p style={{ color: "#64748b", fontSize: "0.75rem" }}>
+                      New Listing · Score 78
+                    </p>
+                  </div>
+                  <div style={{ textAlign: "right" }}>
+                    <p style={{ color: "#1a1f2c", fontWeight: 600, fontSize: "0.85rem" }}>$285,000</p>
+                    <p style={{ fontFamily: "'Space Mono', monospace", color: "#64748b", fontSize: "0.65rem" }}>
+                      AVM: $292K
+                    </p>
+                  </div>
+                </div>
+                <div style={{ display: "flex", gap: "12px", fontSize: "0.7rem", color: "#64748b" }}>
+                  <span>3bd · 2ba · 1,850 sqft</span>
+                  <span style={{ color: "#e2e8f0" }}>|</span>
+                  <a href="#" style={{ color: "#1e40af", textDecoration: "none" }}>Verify on Zillow</a>
+                </div>
+              </div>
+            </div>
+
+            {/* Stats Row */}
+            <div style={{ padding: "16px 20px", background: "#f8f9fa", borderTop: "1px solid #e2e8f0" }}>
+              <div style={{ display: "flex", gap: "32px" }}>
+                <div>
+                  <p style={{ color: "#64748b", fontSize: "0.7rem", marginBottom: "2px" }}>New findings</p>
+                  <p style={{ fontFamily: "'Space Mono', monospace", color: "#1e40af", fontWeight: 600, fontSize: "1.1rem" }}>12</p>
+                </div>
+                <div>
+                  <p style={{ color: "#64748b", fontSize: "0.7rem", marginBottom: "2px" }}>Top finds (14d)</p>
+                  <p style={{ fontFamily: "'Space Mono', monospace", color: "#f59e0b", fontWeight: 600, fontSize: "1.1rem" }}>28</p>
+                </div>
+                <div>
+                  <p style={{ color: "#64748b", fontSize: "0.7rem", marginBottom: "2px" }}>Score threshold</p>
+                  <p style={{ fontFamily: "'Space Mono', monospace", color: "#1a1f2c", fontWeight: 600, fontSize: "1.1rem" }}>65+</p>
+                </div>
               </div>
             </div>
           </div>

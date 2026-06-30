@@ -9,13 +9,13 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main style={{ minHeight: "100vh", background: "#0a0a0f", color: "#fff", overflowX: "hidden" }}>
+    <main style={{ minHeight: "100vh", background: "#ffffff", color: "#1a1f2c", overflowX: "hidden" }}>
       <Navbar />
       <Hero />
-      <HowItWorks />
       <SampleReport />
       <WhatMonitorChecks />
       <Pricing />
+      <HowItWorks />
       <Disclaimer />
       <Footer />
     </main>

@@ -2,18 +2,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
 
 :root {
-  --bg:        #080c10;
-  --bg-2:      #0d1117;
-  --bg-card:   #111820;
-  --border:    rgba(0, 212, 170, 0.12);
-  --border-2:  rgba(255, 255, 255, 0.06);
-  --teal:      #00d4aa;
-  --teal-dim:  #00a882;
+  /* Light professional palette */
+  --bg:        #ffffff;
+  --bg-alt:    #f8f9fa;
+  --bg-section: #fcfcfd;
+  --bg-2:      #f1f5f9;
+  --bg-card:   #ffffff;
+  --border:    #e2e8f0;
+  --border-2:  #f1f5f9;
+  --navy:      #1e3a8a;
+  --navy-dark: #1e40af;
+  --blue:      #3b82f6;
+  --blue-light: #60a5fa;
+  --blue-hover: #2563eb;
   --amber:     #f59e0b;
   --amber-dim: #d97706;
-  --text-1:    #f0f4f8;
-  --text-2:    #8b9eb0;
-  --text-3:    #4a5e72;
+  --text-1:    #1a1f2c;
+  --text-2:    #475569;
+  --text-3:    #64748b;
+  --status-green: #10b981;
+  --status-red: #ef4444;
 }
 
 * {
@@ -44,7 +52,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .gradient-text {
-  background: linear-gradient(120deg, #00d4aa 0%, #00f5d4 40%, #7af5e0 100%);
+  background: linear-gradient(120deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -62,46 +70,42 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--bg-card);
   backdrop-filter: blur(16px);
   border: 1px solid var(--border);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
 }
 
 .card-glass-2 {
-  background: rgba(0, 212, 170, 0.04);
+  background: rgba(59, 130, 246, 0.04);
   backdrop-filter: blur(16px);
   border: 1px solid var(--border);
 }
 
 /* ── Glows ── */
-.glow-teal {
-  box-shadow: 0 0 40px rgba(0, 212, 170, 0.25);
+.glow-blue {
+  box-shadow: 0 0 40px rgba(59, 130, 246, 0.2);
 }
 
 .glow-amber {
-  box-shadow: 0 0 40px rgba(245, 158, 11, 0.25);
-}
-
-/* kept for backward compat */
-.glow-purple {
-  box-shadow: 0 0 40px rgba(0, 212, 170, 0.25);
+  box-shadow: 0 0 40px rgba(245, 158, 11, 0.2);
 }
 
 /* ── Pill / badge ── */
-.tag-teal {
-  background: rgba(0, 212, 170, 0.1);
-  border: 1px solid rgba(0, 212, 170, 0.25);
-  color: var(--teal);
+.tag-blue {
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  color: var(--navy-dark);
 }
 
 .tag-amber {
-  background: rgba(245, 158, 11, 0.1);
-  border: 1px solid rgba(245, 158, 11, 0.25);
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.2);
   color: var(--amber);
 }
 
 /* ── Backgrounds ── */
 .bg-grid {
   background-image:
-    linear-gradient(rgba(0, 212, 170, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 212, 170, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 
@@ -110,8 +114,8 @@ h1, h2, h3, h4, h5, h6 {
     0deg,
     transparent,
     transparent 2px,
-    rgba(0, 212, 170, 0.015) 2px,
-    rgba(0, 212, 170, 0.015) 4px
+    rgba(59, 130, 246, 0.01) 2px,
+    rgba(59, 130, 246, 0.01) 4px
   );
 }
 
@@ -129,7 +133,7 @@ h1, h2, h3, h4, h5, h6 {
 /* ── Section divider ── */
 .section-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(0, 212, 170, 0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.15), transparent);
 }
 
 /* ── Animations ── */
@@ -143,9 +147,9 @@ h1, h2, h3, h4, h5, h6 {
   50% { opacity: 1; }
 }
 
-@keyframes teal-pulse {
-  0%, 100% { box-shadow: 0 0 20px rgba(0, 212, 170, 0.2); }
-  50% { box-shadow: 0 0 50px rgba(0, 212, 170, 0.5); }
+@keyframes blue-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.15); }
+  50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.3); }
 }
 
 @keyframes dot-pulse {
@@ -166,8 +170,8 @@ h1, h2, h3, h4, h5, h6 {
   animation: pulse-glow 3s ease-in-out infinite;
 }
 
-.animate-teal-pulse {
-  animation: teal-pulse 3s ease-in-out infinite;
+.animate-blue-pulse {
+  animation: blue-pulse 3s ease-in-out infinite;
 }
 
 section {
@@ -185,51 +189,26 @@ section {
     padding-right: 20px !important;
   }
 
-  /* Hero: shorter min-height, tighter spacing */
+  /* Hero: shorter padding */
   #hero {
-    min-height: auto !important;
-    padding-top: 96px !important;
+    padding-top: 88px !important;
     padding-bottom: 48px !important;
     padding-left: 20px !important;
     padding-right: 20px !important;
   }
 
-  /* Hero inner container */
-  #hero > div:last-child {
-    padding: 0 !important;
-    gap: 0 !important;
-  }
-
-  /* Collapse badge margin */
-  #hero .location-badge,
-  #hero [style*="marginBottom: \"32px\""],
-  #hero [style*="marginBottom: '32px'"] {
-    margin-bottom: 16px !important;
-  }
-
-  /* Smaller hero heading */
+  /* Hero heading */
   #hero h1 {
     font-size: 1.75rem !important;
     margin-bottom: 14px !important;
     line-height: 1.15 !important;
   }
 
-  /* Tighter description paragraph */
+  /* Hero description */
   #hero p {
     font-size: 0.9rem !important;
     line-height: 1.65 !important;
     margin-bottom: 20px !important;
-  }
-
-  /* Feature pills: tighter gap, smaller text */
-  #hero [style*="flexWrap: \"wrap\""] {
-    gap: 6px !important;
-    margin-bottom: 20px !important;
-  }
-
-  /* Hide trust line on mobile — duplicates pill info */
-  #hero > div:last-child > div > div:last-child {
-    display: none !important;
   }
 
   /* Section headers: tighter */
@@ -243,42 +222,69 @@ section {
     margin-bottom: 32px !important;
   }
 
-  /* HowItWorks cards: single column, less padding */
-  #how-it-works [style*="gridTemplateColumns"] {
+  /* HowItWorks cards: single column */
+  .hiw-grid {
     grid-template-columns: 1fr !important;
     gap: 12px !important;
   }
 
-  #how-it-works [style*="padding: \"36px 28px\""] {
+  .hiw-card {
     padding: 22px 18px !important;
   }
 
-  /* WhatMonitorChecks: 2-col grid on mobile */
-  #what-monitor-checks [style*="gridTemplateColumns"] {
-    grid-template-columns: 1fr 1fr !important;
-    gap: 10px !important;
-  }
-
-  /* SampleReport: tighter padding */
-  #sample-report [style*="padding: \"28px 36px\""],
-  #sample-report [style*="padding: \"24px 36px\""] {
-    padding: 16px 16px !important;
-  }
-
-  /* Pricing: single column, less padding */
-  #pricing [style*="gridTemplateColumns"] {
+  /* WhatMonitorChecks: single column for better readability */
+  .wmc-grid {
     grid-template-columns: 1fr !important;
     gap: 12px !important;
   }
 
-  #pricing [style*="marginBottom: \"80px\""] {
+  .wmc-card {
+    padding: 20px 16px !important;
+  }
+
+  /* SampleReport: tighter padding */
+  .sr-card-head,
+  .sr-card-body {
+    padding: 16px !important;
+  }
+
+  .sr-stat-row {
+    gap: 20px !important;
+    margin-top: 14px !important;
+  }
+
+  .sr-top-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  /* Pricing: single column */
+  .pricing-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .pricing-card {
+    padding: 22px 18px !important;
+  }
+
+  .pricing-header {
     margin-bottom: 32px !important;
+  }
+
+  /* Comparison table scrollable */
+  .comparison-table {
+    overflow-x: auto !important;
+  }
+
+  .comparison-table table {
+    min-width: 600px !important;
   }
 
   /* Reduce max-width containers padding */
   [style*="maxWidth: \"1000px\""],
-  [style*="maxWidth: \"1200px\""],
-  [style*="maxWidth: \"1280px\""] {
+  [style*="maxWidth: \"1100px\""],
+  [style*="maxWidth: \"1200px\""] {
     padding-left: 0 !important;
     padding-right: 0 !important;
   }

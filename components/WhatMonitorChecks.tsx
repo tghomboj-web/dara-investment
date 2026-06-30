@@ -1,47 +1,43 @@
 "use client";
 
-import { DollarSign, Percent, Clock, MapPin, Home, TrendingUp, AlertCircle, Shield } from "lucide-react";
+import { DollarSign, Percent, Clock, MapPin, Home, TrendingUp, Shield, Check } from "lucide-react";
 
-const checks = [
+const categories = [
   {
-    icon: DollarSign,
-    title: "Price Range",
-    description: "Min/max price filters to match your budget and investment capacity.",
-  },
-  {
-    icon: Percent,
-    title: "Score Threshold",
-    description: "Minimum investment score (0-100) based on multiple data points.",
-  },
-  {
-    icon: Clock,
-    title: "Listing Status",
-    description: "New listings, price drops, back on market, and days on market.",
-  },
-  {
+    name: "Location & Property Type",
     icon: MapPin,
-    title: "ZIP-Code Profiles",
-    description: "Monitor specific Charlotte-area ZIP codes you define.",
+    items: ["ZIP code selection", "Property type filters", "Custom search profiles"],
+    tierNote: "Basic tier and above",
   },
   {
-    icon: Home,
-    title: "Property Characteristics",
-    description: "Property type, beds, baths, square footage, and year built.",
+    name: "Price & Listing Activity",
+    icon: DollarSign,
+    items: ["Price range filters", "New listings", "Price drops", "Days on market"],
+    tierNote: "Basic tier and above",
   },
   {
+    name: "Investment Score & Signals",
+    icon: Percent,
+    items: ["Minimum score threshold", "AVM discount filters", "Deal signal detection"],
+    tierNote: "Smart tier and above",
+  },
+  {
+    name: "Rental & Valuation Metrics",
     icon: TrendingUp,
-    title: "Market Signals",
-    description: "AVM estimates, rent estimates, payment ratios, and market trends.",
+    items: ["Rent estimates", "Rent/payment ratio filters", "Comparable sales data"],
+    tierNote: "Smart tier and above",
   },
   {
-    icon: AlertCircle,
-    title: "Deal Alerts",
-    description: "Price-drop thresholds and below-estimate opportunities.",
+    name: "Property Characteristics",
+    icon: Home,
+    items: ["Beds, baths, square footage", "Year built range", "Lot size filters"],
+    tierNote: "Pro tier only",
   },
   {
+    name: "Data Quality & Confidence",
     icon: Shield,
-    title: "Data Quality",
-    description: "Filters to exclude low-confidence estimates and missing data.",
+    items: ["Low-confidence estimate filtering", "Missing data exclusion", "Data quality flags"],
+    tierNote: "Pro tier only",
   },
 ];
 
@@ -49,88 +45,110 @@ export default function WhatMonitorChecks() {
   return (
     <section
       id="what-we-check"
-      style={{ padding: "100px 32px", position: "relative" }}
-      className="bg-[#080c10] wmc-section"
+      style={{ padding: "100px 24px", position: "relative" }}
+      className="bg-[#ffffff]"
     >
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="section-divider absolute top-0 left-0 right-0" />
-      </div>
-
-      <style>{`
-        @media (max-width: 768px) {
-          .wmc-section { padding: 52px 20px !important; }
-          .wmc-header { margin-bottom: 28px !important; }
-          .wmc-grid { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
-          .wmc-card { padding: 16px 14px !important; }
-          .wmc-card h3 { font-size: 0.82rem !important; margin-bottom: 4px !important; }
-          .wmc-card p { font-size: 0.75rem !important; line-height: 1.5 !important; }
-          .wmc-icon { width: 30px !important; height: 30px !important; margin-bottom: 10px !important; }
-        }
-      `}</style>
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
         {/* Section header */}
-        <div className="wmc-header" style={{ textAlign: "center", marginBottom: "56px" }}>
+        <div style={{ textAlign: "center", marginBottom: "56px" }}>
           <span style={{
             fontFamily: "'Space Mono', monospace",
-            display: "inline-block", color: "#00d4aa",
-            fontSize: "0.65rem", fontWeight: 700,
+            display: "inline-block", color: "#1e40af",
+            fontSize: "0.65rem", fontWeight: 600,
             letterSpacing: "0.15em", textTransform: "uppercase",
             marginBottom: "14px",
           }}>
-            WHAT WE MONITOR
+            FILTERS & CRITERIA
           </span>
           <h2 style={{
-            fontSize: "clamp(1.8rem, 3.5vw, 2.75rem)",
-            fontWeight: 700, color: "#f0f4f8",
+            fontSize: "clamp(1.8rem, 3.5vw, 2.5rem)",
+            fontWeight: 700, color: "#1a1f2c",
             marginBottom: "14px", lineHeight: 1.2, letterSpacing: "-0.02em",
           }}>
-            What the <span className="gradient-text">Monitor Checks</span>
+            What the <span className="gradient-text">Monitor Evaluates</span>
           </h2>
-          <p style={{ color: "#8b9eb0", fontSize: "1rem", maxWidth: "480px", margin: "0 auto", lineHeight: 1.75 }}>
-            Objective criteria applied consistently across all monitored properties.
+          <p style={{ color: "#64748b", fontSize: "1rem", maxWidth: "500px", margin: "0 auto", lineHeight: 1.75 }}>
+            Objective criteria applied to every monitored property. Filter availability depends on your subscription tier.
           </p>
         </div>
 
-        {/* Checks grid */}
-        <div className="wmc-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))", gap: "16px" }}>
-          {checks.map((check, i) => {
-            const Icon = check.icon;
-            const isAmber = i % 4 === 1 || i % 4 === 2;
-            const accent = isAmber ? "#f59e0b" : "#00d4aa";
+        {/* Category Cards */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "20px" }}>
+          {categories.map((category, i) => {
+            const Icon = category.icon;
             return (
-              <div key={i} className="wmc-card" style={{
+              <div key={i} style={{
                 padding: "24px",
-                borderRadius: "10px",
-                background: "#0d1117",
-                border: `1px solid ${accent}15`,
-                transition: "border-color 0.25s, box-shadow 0.25s",
+                borderRadius: "12px",
+                background: "#ffffff",
+                border: "1px solid #e2e8f0",
+                boxShadow: "0 1px 3px rgba(0,0,0,0.04)",
+                transition: "border-color 0.2s, box-shadow 0.2s",
               }}
               onMouseEnter={e => {
-                (e.currentTarget as HTMLElement).style.borderColor = `${accent}30`;
-                (e.currentTarget as HTMLElement).style.boxShadow = `0 0 20px ${accent}0a`;
+                (e.currentTarget as HTMLElement).style.borderColor = "#1e40af";
+                (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 12px rgba(30, 64, 175, 0.08)";
               }}
               onMouseLeave={e => {
-                (e.currentTarget as HTMLElement).style.borderColor = `${accent}15`;
-                (e.currentTarget as HTMLElement).style.boxShadow = "none";
+                (e.currentTarget as HTMLElement).style.borderColor = "#e2e8f0";
+                (e.currentTarget as HTMLElement).style.boxShadow = "0 1px 3px rgba(0,0,0,0.04)";
               }}>
-                <div className="wmc-icon" style={{
-                  width: "38px", height: "38px", borderRadius: "8px",
-                  background: `${accent}10`,
-                  border: `1px solid ${accent}20`,
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  marginBottom: "14px",
-                }}>
-                  <Icon size={17} color={accent} />
+                <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "16px" }}>
+                  <div style={{
+                    width: "36px", height: "36px", borderRadius: "8px",
+                    background: "rgba(30, 64, 175, 0.1)",
+                    border: "1px solid rgba(30, 64, 175, 0.2)",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                  }}>
+                    <Icon size={16} color="#1e40af" />
+                  </div>
+                  <h3 style={{ fontSize: "0.95rem", fontWeight: 600, color: "#1a1f2c" }}>
+                    {category.name}
+                  </h3>
                 </div>
-                <h3 style={{ fontSize: "0.9rem", fontWeight: 600, color: "#f0f4f8", marginBottom: "6px" }}>
-                  {check.title}
-                </h3>
-                <p style={{ color: "#8b9eb0", fontSize: "0.82rem", lineHeight: 1.65 }}>
-                  {check.description}
-                </p>
+
+                <ul style={{ listStyle: "none", padding: 0, margin: 0, marginBottom: "16px" }}>
+                  {category.items.map((item, idx) => (
+                    <li key={idx} style={{ display: "flex", alignItems: "flex-start", gap: "8px", marginBottom: "8px", fontSize: "0.85rem", color: "#475569" }}>
+                      <Check size={14} color="#1e40af" style={{ flexShrink: 0, marginTop: "2px" }} />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+
+                <div style={{
+                  padding: "8px 12px",
+                  borderRadius: "6px",
+                  background: category.tierNote.includes("Pro") ? "rgba(245, 158, 11, 0.08)" : "rgba(30, 64, 175, 0.08)",
+                  border: category.tierNote.includes("Pro") ? "1px solid rgba(245, 158, 11, 0.15)" : "1px solid rgba(30, 64, 175, 0.15)",
+                }}>
+                  <p style={{
+                    fontFamily: "'Space Mono', monospace",
+                    fontSize: "0.7rem",
+                    fontWeight: 600,
+                    color: category.tierNote.includes("Pro") ? "#f59e0b" : "#1e40af",
+                    margin: 0,
+                  }}>
+                    {category.tierNote}
+                  </p>
+                </div>
               </div>
             );
           })}
+        </div>
+
+        {/* Tier note */}
+        <div style={{
+          marginTop: "40px",
+          padding: "16px 20px",
+          borderRadius: "8px",
+          background: "#f8f9fa",
+          border: "1px solid #e2e8f0",
+          textAlign: "center",
+        }}>
+          <p style={{ color: "#64748b", fontSize: "0.85rem", margin: 0 }}>
+            Filter availability varies by subscription tier. <a href="#pricing" style={{ color: "#1e40af", fontWeight: 500, textDecoration: "none" }}>View pricing details</a>.
+          </p>
         </div>
       </div>
     </section>

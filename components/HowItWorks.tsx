@@ -6,26 +6,26 @@ const steps = [
   {
     icon: Settings,
     step: "01",
-    title: "Choose Your Profile",
+    title: "Set Your Criteria",
     description:
-      "Set your investment criteria: price range, score threshold, property types, and target ZIP codes in the Charlotte area.",
-    accent: "#00d4aa",
+      "Configure your investment filters: location, price range, property types, and score thresholds based on your tier.",
+    accent: "#1e40af",
   },
   {
     icon: ScanLine,
     step: "02",
-    title: "Monitor Scans Selected ZIPs",
+    title: "Daily Scans Run",
     description:
-      "Our system runs daily scans across your selected Charlotte-area ZIP codes, checking listings against your criteria.",
-    accent: "#f59e0b",
+      "Our system scans Charlotte-area listings daily, evaluating each property against your configured criteria.",
+    accent: "#3b82f6",
   },
   {
     icon: Send,
     step: "03",
-    title: "Receive Daily Findings",
+    title: "Receive Your Report",
     description:
-      "Get daily reports with new findings and recent opportunities delivered to your email or Telegram.",
-    accent: "#00d4aa",
+      "Get daily reports with new findings and top opportunities delivered via email or Telegram.",
+    accent: "#1e40af",
   },
 ];
 
@@ -33,14 +33,9 @@ export default function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      style={{ padding: "120px 32px" }}
+      style={{ padding: "100px 24px", background: "#ffffff" }}
       className="relative hiw-section"
     >
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="section-divider absolute top-0 left-0 right-0" />
-        <div className="section-divider absolute bottom-0 left-0 right-0" />
-      </div>
-
       <style>{`
         @media (max-width: 768px) {
           .hiw-section { padding: 52px 20px !important; }
@@ -52,28 +47,28 @@ export default function HowItWorks() {
           .hiw-icon { margin-bottom: 16px !important; }
         }
       `}</style>
-      <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
+      <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
         {/* Section header */}
-        <div className="hiw-header" style={{ textAlign: "center", marginBottom: "72px" }}>
+        <div className="hiw-header" style={{ textAlign: "center", marginBottom: "56px" }}>
           <span style={{
             fontFamily: "'Space Mono', monospace",
-            display: "inline-block", color: "#00d4aa",
-            fontSize: "0.65rem", fontWeight: 700,
+            display: "inline-block", color: "#1e40af",
+            fontSize: "0.65rem", fontWeight: 600,
             letterSpacing: "0.15em", textTransform: "uppercase",
-            marginBottom: "16px",
+            marginBottom: "14px",
           }}>
             HOW IT WORKS
           </span>
           <h2 style={{
-            fontSize: "clamp(1.8rem, 3.5vw, 2.75rem)",
-            fontWeight: 700, color: "#f0f4f8",
-            marginBottom: "16px", lineHeight: 1.2,
+            fontSize: "clamp(1.8rem, 3.5vw, 2.5rem)",
+            fontWeight: 700, color: "#1a1f2c",
+            marginBottom: "14px", lineHeight: 1.2,
             letterSpacing: "-0.02em",
           }}>
             Three <span className="gradient-text">Simple Steps</span>
           </h2>
-          <p style={{ color: "#8b9eb0", fontSize: "1rem", maxWidth: "480px", margin: "0 auto", lineHeight: 1.75 }}>
-            Set your criteria, run daily scans, receive findings — automated and objective.
+          <p style={{ color: "#64748b", fontSize: "1rem", maxWidth: "500px", margin: "0 auto", lineHeight: 1.75 }}>
+            Configure your criteria, receive daily scans, get objective findings.
           </p>
         </div>
 
@@ -83,27 +78,28 @@ export default function HowItWorks() {
             const Icon = step.icon;
             return (
               <div key={i} className="hiw-card" style={{
-                background: "#0d1117",
-                border: `1px solid ${step.accent}22`,
+                background: "#ffffff",
+                border: `1px solid #e2e8f0`,
                 borderRadius: "12px",
-                padding: "36px 28px",
+                padding: "32px 24px",
                 position: "relative",
-                transition: "border-color 0.3s, box-shadow 0.3s",
+                transition: "border-color 0.2s, box-shadow 0.2s",
+                boxShadow: "0 1px 3px rgba(0,0,0,0.04)",
               }}
               onMouseEnter={e => {
-                (e.currentTarget as HTMLElement).style.borderColor = `${step.accent}44`;
-                (e.currentTarget as HTMLElement).style.boxShadow = `0 0 30px ${step.accent}12`;
+                (e.currentTarget as HTMLElement).style.borderColor = "#1e40af";
+                (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 12px rgba(30, 64, 175, 0.08)";
               }}
               onMouseLeave={e => {
-                (e.currentTarget as HTMLElement).style.borderColor = `${step.accent}22`;
-                (e.currentTarget as HTMLElement).style.boxShadow = "none";
+                (e.currentTarget as HTMLElement).style.borderColor = "#e2e8f0";
+                (e.currentTarget as HTMLElement).style.boxShadow = "0 1px 3px rgba(0,0,0,0.04)";
               }}>
                 {/* Step number watermark */}
                 <div style={{
                   position: "absolute", top: "16px", right: "20px",
                   fontFamily: "'Space Mono', monospace",
-                  fontSize: "2.5rem", fontWeight: 700,
-                  color: `${step.accent}0d`,
+                  fontSize: "2rem", fontWeight: 700,
+                  color: "rgba(30, 64, 175, 0.08)",
                   lineHeight: 1, userSelect: "none",
                 }}>
                   {step.step}
@@ -111,26 +107,26 @@ export default function HowItWorks() {
                 {/* Icon */}
                 <div className="hiw-icon" style={{
                   width: "44px", height: "44px", borderRadius: "10px",
-                  background: `${step.accent}12`,
-                  border: `1px solid ${step.accent}25`,
+                  background: "rgba(30, 64, 175, 0.1)",
+                  border: `1px solid rgba(30, 64, 175, 0.2)`,
                   display: "flex", alignItems: "center", justifyContent: "center",
-                  marginBottom: "24px",
+                  marginBottom: "20px",
                 }}>
-                  <Icon size={20} color={step.accent} />
+                  <Icon size={20} color="#1e40af" />
                 </div>
                 {/* Step label */}
                 <div style={{
                   fontFamily: "'Space Mono', monospace",
-                  color: step.accent, fontSize: "0.62rem",
-                  fontWeight: 700, letterSpacing: "0.12em",
-                  marginBottom: "10px",
+                  color: "#1e40af", fontSize: "0.6rem",
+                  fontWeight: 600, letterSpacing: "0.12em",
+                  marginBottom: "8px",
                 }}>
                   STEP {step.step}
                 </div>
-                <h3 style={{ fontSize: "1rem", fontWeight: 600, color: "#f0f4f8", marginBottom: "12px" }}>
+                <h3 style={{ fontSize: "1rem", fontWeight: 600, color: "#1a1f2c", marginBottom: "10px" }}>
                   {step.title}
                 </h3>
-                <p style={{ color: "#8b9eb0", fontSize: "0.88rem", lineHeight: 1.75 }}>
+                <p style={{ color: "#64748b", fontSize: "0.88rem", lineHeight: 1.7 }}>
                   {step.description}
                 </p>
               </div>
