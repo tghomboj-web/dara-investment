@@ -123,7 +123,7 @@ export default function WhatMonitorChecks() {
                   border: category.tierNote.includes("Pro") ? "1px solid rgba(245, 158, 11, 0.15)" : "1px solid rgba(30, 64, 175, 0.15)",
                 }}>
                   <p style={{
-                    fontFamily: "'Space Mono', monospace",
+                    fontFamily: "'Space Grotesk', sans-serif",
                     fontSize: "0.7rem",
                     fontWeight: 600,
                     color: category.tierNote.includes("Pro") ? "#f59e0b" : "#1e40af",
